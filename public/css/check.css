@@ -1,0 +1,46 @@
+.input:focus,textarea:focus {
+    border-color: #ff393966;
+    box-shadow: 0 0 0 0.2rem rgb(244 67 54 / 46%);
+}
+label{
+    font-size: 16px;
+    font-weight: 700;
+    color: #515050;
+}
+
+.yourOrder .orderInfo {
+    background: #efefef;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 9px 0;
+    align-items: center;
+}
+.yourOrder .orderInfo.first{
+    background: transparent;
+}
+
+.yourOrder .orderInfo img{
+
+    border-radius: 8px;
+
+}
+button.placeOrder {
+    width: 100%;
+    border-radius: 8px;
+    background: #ff3939;
+    margin: 20px 0;
+}
+.box {
+    padding: 10px 20px;
+}
+.box p{
+    font-weight: 500 !important;
+    font-size: 14px;
+}
+.methode{
+    margin: 25px 0;
+}
+.order {
+    padding: 9px 0;
+}

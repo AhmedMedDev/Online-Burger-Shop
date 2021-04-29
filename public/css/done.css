@@ -1,0 +1,34 @@
+
+
+.row.billHeader h4 {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+}
+
+.billBody h5 {
+    color: #515050;
+    font-size: 17px;
+    margin: 0;
+}
+
+.row.billBody {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+
+
+.finalBill .col-lg-3 {
+    border: 1px solid #e5e5e5;
+    padding: 1.4rem;
+}
+
+.finalBill {
+    padding: 25px ;
+}
+
+.finalBill h6 {
+    font-family: 'Fredoka One', cursive;
+    margin: 20px 0;
+}
