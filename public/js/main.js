@@ -154,11 +154,11 @@ $(document).ready(function () {
     
    jQuery('.quantity').each(function() {
     var spinner = jQuery(this),
-      input = spinner.find('input[type="number"]'),
-      btnUp = spinner.find('.quantity-up'),
-      btnDown = spinner.find('.quantity-down'),
-      min = input.attr('min'),
-      max = input.attr('max');
+      input     = spinner.find('input[type="number"]'),
+      btnUp     = spinner.find('.quantity-up'),
+      btnDown   = spinner.find('.quantity-down'),
+      min       = input.attr('min'),
+      max       = input.attr('max');
 
     btnUp.click(function() {
       var oldValue = parseFloat(input.val());

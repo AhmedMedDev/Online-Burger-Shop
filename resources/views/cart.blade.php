@@ -66,9 +66,13 @@
                         <h4 id="cart_price_{{$cart->id}}">{{$cart->price}}</h4>
                     </div>
                     <div class="col-md-2 quantity">
-                        <div class="quantity-button quantity-down quantity-common"><i class="fas fa-arrow-down"></i></div>
-                        <input type="number" min="1" max="9" step="1" value="{{$cart->quantity}}">
-                        <div class="quantity-button quantity-up quantity-common"><i class="fas fa-arrow-up"></i></div>
+                        <div class="quantity-button quantity-down quantity-common" onclick="DecreaseCart( {{$cart->id}} )">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <input type="number" class="proQuan" min="1" max="20" step="1" value="{{$cart->quantity}}" id="quan{{$cart->id}}">
+                        <div class="quantity-button quantity-up quantity-common" onclick="IncreaseCart({{$cart->id}})">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
                     </div>
                     <div class="col-md-2 subtotal">
                         <h4 class="productPrice" price="{{$cart->price}}">{{$cart->price}}</h4>
@@ -104,7 +108,7 @@
                         <h5 class="title">Subtotal</h5>
                         <h5 class="litprice">$8.00</h5>
                     </div>
-                    <div class="disF">
+                    <div class="disF" >
                         <h5 class="title">Total</h5>
                         <h5 class="price" id="totalPrice"> </h5>
                     </div>
@@ -116,5 +120,8 @@
         </div>
     </div>
     <!--END Cart totals-->
+    <script>
     
+    
+    </script>
 @endsection

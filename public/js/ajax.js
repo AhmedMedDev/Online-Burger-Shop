@@ -30,20 +30,30 @@ function Carttotal()
 {
     var product_price = document.getElementsByClassName("productPrice");
 
+    var product_quantity = document.getElementsByClassName("proQuan");
+
     var price = document.getElementById("totalPrice");
 
     var totalPrice = 0;
 
-    for (let index = 0; index < product_price.length; index++) 
-        totalPrice = totalPrice +  Number(product_price[index].getAttribute("price"))
+    for (let index = 0; index < product_price.length ; index++) 
+    {
+        var proPrice = Number(product_price[index].getAttribute("price"))
+        var proQuan = product_quantity[index].value
+
+        totalPrice = totalPrice +  (proPrice * proQuan)
+       
+    }
 
     price.innerHTML = totalPrice
 
+    return totalPrice + proPrice;
+
 }
 
-function DecreaseCarttotal(DeletedPrice)
+function DecreaseCarttotal(DeletedPrice,DeletedPriceQuantity)
 {
-    $('#totalPrice').text( Number($('#totalPrice').text()) - DeletedPrice )
+    $('#totalPrice').text( Number($('#totalPrice').text()) - (DeletedPrice * DeletedPriceQuantity))
 }
 
 
@@ -90,11 +100,46 @@ function DeleteCart(cart_id)
                     $(`#cart${cart_id}`).remove();
 
                 });
-                
-                DecreaseCarttotal($(`#cart_price_${cart_id}`).text())
+                DecreaseCarttotal($(`#cart_price_${cart_id}`).text(),$(`#quan${cart_id}`).val())
             }
        },
        error: function (data) {}
+    })
+
+
+}
+
+function IncreaseCart(cart_id)
+{
+    var quantity = $(`#quan${cart_id}`).val();
+
+    $.ajax({
+        method : "PUT",
+        url : `cart/${cart_id}`,
+        data  : {
+            quantity : Number(quantity) + 1
+        },
+        cache:false,
+        success: function (data) {},
+        error: function (data) {}
+    })
+    
+    $('#totalPrice').text( Carttotal() )
+}
+
+function DecreaseCart(cart_id)
+{
+    var quantity = $(`#quan${cart_id}`).val();
+
+    $.ajax({
+        method : "PUT",
+        url : `cart/${cart_id}`,
+        data  : {
+            quantity : Number(quantity) - 1
+        },
+        cache:false,
+        success: function (data) {},
+        error: function (data) {}
     })
 
 
