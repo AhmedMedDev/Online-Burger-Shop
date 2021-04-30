@@ -39,6 +39,7 @@ function Carttotal()
     for (let index = 0; index < product_price.length ; index++) 
     {
         var proPrice = Number(product_price[index].getAttribute("price"))
+
         var proQuan = product_quantity[index].value
 
         totalPrice = totalPrice +  (proPrice * proQuan)
@@ -47,7 +48,7 @@ function Carttotal()
 
     price.innerHTML = totalPrice
 
-    return totalPrice + proPrice;
+    return totalPrice;
 
 }
 
@@ -55,7 +56,6 @@ function DecreaseCarttotal(DeletedPrice,DeletedPriceQuantity)
 {
     $('#totalPrice').text( Number($('#totalPrice').text()) - (DeletedPrice * DeletedPriceQuantity))
 }
-
 
 function ConfirmDelete(cart_id)
 {
@@ -85,7 +85,6 @@ function ConfirmDelete(cart_id)
     })
 }
 
-
 function DeleteCart(cart_id) 
 {
     $.ajax({
@@ -109,7 +108,7 @@ function DeleteCart(cart_id)
 
 }
 
-function IncreaseCart(cart_id)
+function IncreaseCart(cart_id,product_price)
 {
     var quantity = $(`#quan${cart_id}`).val();
 
@@ -124,12 +123,14 @@ function IncreaseCart(cart_id)
         error: function (data) {}
     })
     
-    $('#totalPrice').text( Carttotal() )
+    $('#totalPrice').text( Carttotal()  + product_price )
 }
 
-function DecreaseCart(cart_id)
+function DecreaseCart(cart_id,product_price)
 {
     var quantity = $(`#quan${cart_id}`).val();
+
+    if (quantity == 1) return
 
     $.ajax({
         method : "PUT",
@@ -138,10 +139,11 @@ function DecreaseCart(cart_id)
             quantity : Number(quantity) - 1
         },
         cache:false,
-        success: function (data) {},
-        error: function (data) {}
+        success : function (data) {},
+        error : function (data) {}
     })
 
+    $('#totalPrice').text( Carttotal() - product_price )
 
 }
 

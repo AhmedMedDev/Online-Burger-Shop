@@ -66,11 +66,11 @@
                         <h4 id="cart_price_{{$cart->id}}">{{$cart->price}}</h4>
                     </div>
                     <div class="col-md-2 quantity">
-                        <div class="quantity-button quantity-down quantity-common" onclick="DecreaseCart( {{$cart->id}} )">
+                        <div class="quantity-button quantity-down quantity-common" onclick="DecreaseCart( {{$cart->id}},{{$cart->price}} )">
                             <i class="fas fa-arrow-down"></i>
                         </div>
                         <input type="number" class="proQuan" min="1" max="20" step="1" value="{{$cart->quantity}}" id="quan{{$cart->id}}">
-                        <div class="quantity-button quantity-up quantity-common" onclick="IncreaseCart({{$cart->id}})">
+                        <div class="quantity-button quantity-up quantity-common" onclick="IncreaseCart({{$cart->id}} ,{{$cart->price}})">
                             <i class="fas fa-arrow-up"></i>
                         </div>
                     </div>
@@ -120,8 +120,4 @@
         </div>
     </div>
     <!--END Cart totals-->
-    <script>
-    
-    
-    </script>
 @endsection
