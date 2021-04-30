@@ -52,11 +52,6 @@ function Carttotal()
 
 }
 
-function DecreaseCarttotal(DeletedPrice,DeletedPriceQuantity)
-{
-    $('#totalPrice').text( Number($('#totalPrice').text()) - (DeletedPrice * DeletedPriceQuantity))
-}
-
 function ConfirmDelete(cart_id)
 {
     swalWithBootstrapButtons.fire({
@@ -99,13 +94,12 @@ function DeleteCart(cart_id)
                     $(`#cart${cart_id}`).remove();
 
                 });
-                DecreaseCarttotal($(`#cart_price_${cart_id}`).text(),$(`#quan${cart_id}`).val())
+
+                $('#totalPrice').text( Number($('#totalPrice').text()) - ( $(`#cart_price_${cart_id}`).text() * $(`#quan${cart_id}`).val()) )
             }
        },
        error: function (data) {}
     })
-
-
 }
 
 function IncreaseCart(cart_id,product_price)
@@ -144,7 +138,6 @@ function DecreaseCart(cart_id,product_price)
     })
 
     $('#totalPrice').text( Carttotal() - product_price )
-
 }
 
 Carttotal()

@@ -23,9 +23,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-// Route::get('/cart', function () {
-//     return view('cart');
-// });
+ Route::get('/checkOut', function () {
+     return view('checkOut');
+ });
 
 Route::resource('product', 'ProductController');
 Route::resource('cart', 'CartController');
