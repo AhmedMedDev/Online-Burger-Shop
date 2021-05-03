@@ -186,14 +186,18 @@ $(document).ready(function () {
     
     
     
-    
-    
-    $('.payMethode input').on("click",function(){
+$('.payMethode input').on("click",function(){
 
-        $('.payMethode .box').slideUp(400);
-        $(this).siblings('.box').slideDown(400);
+    $('.payMethode .box').slideUp(400);
+    $(this).siblings('.box').slideDown(400);
 
-    })
+})
+
+$('.price i').on("click",function(){
+
+    $('.your_order_product').slideToggle(400);
+
+})
     
     
     

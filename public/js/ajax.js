@@ -7,21 +7,21 @@ $.ajaxSetup({
 
 function AddToCart(product_id,user_id)
 {
-     $.ajax({
-         method : "POST",
-         url  : "cart",
-         data  : {product_id : product_id, user_id : user_id },
-         cache:false,
-         success: function (data) {
-            if(data.message == 'success')
-            {
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Has Been Added To The Cart'
-                })
-            }
-         },
-     })
+    $.ajax({
+        method : "POST",
+        url  : "cart",
+        data  : {product_id : product_id, user_id : user_id },
+        cache:false,
+        success: function (data) {
+        if(data.message == 'success')
+        {
+            Toast.fire({
+                icon: 'success',
+                title: 'Has Been Added To The Cart'
+            })
+        }
+        },
+    })
 
 }
 
@@ -156,4 +156,6 @@ function StoreTotalPrice()
 }
 
 
-document.getElementById('total_price').setAttribute('value',localStorage.getItem('total_price'))
+document.getElementsByClassName('total_price')[0].innerHTML = localStorage.getItem('total_price')
+document.getElementsByClassName('total_price')[1].innerHTML = localStorage.getItem('total_price')
+document.getElementsByClassName('total_price')[2].setAttribute('value',localStorage.getItem('total_price'))

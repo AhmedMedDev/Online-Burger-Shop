@@ -83,23 +83,34 @@
                                 <div class="yourOrder">
                                     <h3 class="litTitle">Your order</h3>
                                     <div class="order">
-                                        <div class="disF orderInfo first">
+                                        {{--  --}}
+                                        <div class="disF orderInfo first top">
                                             <div class="leftOrder disF-a">
-                                                <img src="https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/44/2020/11/Layer-1-300x300.png" alt="" width="50px" height="50px" class="mr-4">
-                                                <h5 class="price">Juicy Burger  × 2</h5>
+                                                <img src="{{$carts[0]->img}}" alt="" width="50px" height="50px" class="mr-4">
+                                                <h5 class="price">{{$carts[0]->name}}  </h5>
                                             </div>
-                                            <h5 class="price">$8.00</h5>
+                                            <h5 class="price">
+                                                <i class="fas fa-chevron-circle-down "></i>
+                                            </h5>
+                                        </div>
+                                        {{--  --}}
+                                        <div class="your_order_product  orderInfo first hidden">
+                                            @foreach ($carts as $cart)
+                                                <div class="leftOrder disF-a">
+                                                    <img src="{{$cart->img}}" alt="" width="50px" height="50px" class="mr-4">
+                                                    <h5 class="price">{{$cart->name}}  × {{$cart->quantity}}</h5>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        {{--  --}}
+                                        <div class="disF orderInfo">
+                                            <h5 class="title">Subtotal</h5>
+                                            <h5 class="pric total_price">$8.00</h5>
                                         </div>
                                         <div class="disF orderInfo">
                                             <h5 class="title">Total</h5>
-                                            <h5 class="price">$8.00</h5>
-                                        </div>
-                                        <div class="disF orderInfo">
-                                            <h5 class="title">Total</h5>
-                                            <h5 class="price">$8.00</h5>
-                                            <input type="text" name="total_price" id="total_price" class="hidden" value="" >
-                                            <script>
-                                            </script>
+                                            <h5 class="price total_price">$8.00</h5>
+                                            <input type="text" name="total_price" class="total_price hidden"  value="" >
                                         </div>
                                     </div>
                                     <div class="payMethode">

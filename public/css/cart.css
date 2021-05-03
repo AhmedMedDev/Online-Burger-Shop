@@ -225,7 +225,9 @@ h5.title {
     font-size: 16px;
     margin: 0;
 }
-
+h5 {
+    margin: 0;
+}
 h5.litprice {
     font-size: 16px;
     margin: 0;
@@ -233,6 +235,9 @@ h5.litprice {
 h5.price {
     font-size: 17px;
     font-weight: 700;
+}
+i.fas.fa-chevron-circle-down {
+    font-size: 24px;
 }
 
 .cartTotal .content {

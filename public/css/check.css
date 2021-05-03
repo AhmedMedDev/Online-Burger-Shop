@@ -13,13 +13,26 @@ label{
     justify-content: space-between;
     padding: 1rem;
     border-radius: 8px;
-    margin: 9px 0;
+    margin: 15px 0;
     align-items: center;
+    padding: 1.2rem 1rem;
 }
 .yourOrder .orderInfo.first{
     background: transparent;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin: 0;
 }
-
+.top {
+    margin-top: 22px;
+}
+.your_order_product .leftOrder.disF-a {
+    margin: 22px 0;
+}
+i.fas.fa-chevron-circle-down {
+    font-size: 24px;
+    cursor: pointer;
+}
 .yourOrder .orderInfo img{
 
     border-radius: 8px;

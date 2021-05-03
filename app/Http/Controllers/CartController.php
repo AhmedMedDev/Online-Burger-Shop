@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -16,13 +17,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = DB::table('cart_product')->get();
+        $carts = DB::table('cart_product')->where('user_id',Auth::user()->id)->get();
 
-        $data = [
-            'carts' => $carts
-        ];
-
-        return view('cart',$data);
+        return view('cart',['carts' => $carts]);
     }
 
     /**
