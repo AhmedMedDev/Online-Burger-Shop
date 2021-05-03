@@ -22,7 +22,7 @@
         @yield('css')
         
     </head>
-    <body>
+    <body onload="Carttotal()">
 
         @yield('content')
 

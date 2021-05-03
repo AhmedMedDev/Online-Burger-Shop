@@ -23,10 +23,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
- Route::get('/checkOut', function () {
-     return view('checkOut');
- });
 
 Route::resource('product', 'ProductController');
 Route::resource('cart', 'CartController');
+
+Route::view('checkOut', 'checkOut');
+Route::view('Done', 'done');
+
+Route::post('/billing', 'BillingController@placeOrder');
 

@@ -112,7 +112,7 @@
                         <h5 class="title">Total</h5>
                         <h5 class="price" id="totalPrice"> </h5>
                     </div>
-                    <a href="CheckOut.html">
+                    <a href="{{ asset('checkOut')}}">
                         <button class="proceed"> Proceed To Checkout</button>
                     </a>
                 </div>

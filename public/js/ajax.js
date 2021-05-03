@@ -43,10 +43,11 @@ function Carttotal()
         var proQuan = product_quantity[index].value
 
         totalPrice = totalPrice +  (proPrice * proQuan)
-       
     }
 
     price.innerHTML = totalPrice
+
+    StoreTotalPrice()
 
     return totalPrice;
 
@@ -116,8 +117,11 @@ function IncreaseCart(cart_id,product_price)
         success: function (data) {},
         error: function (data) {}
     })
-    
+
     $('#totalPrice').text( Carttotal()  + product_price )
+
+    StoreTotalPrice()
+
 }
 
 function DecreaseCart(cart_id,product_price)
@@ -138,6 +142,18 @@ function DecreaseCart(cart_id,product_price)
     })
 
     $('#totalPrice').text( Carttotal() - product_price )
+
+    StoreTotalPrice()
+
 }
 
-Carttotal()
+
+function StoreTotalPrice()
+{
+    var Total_Price = $(`#totalPrice`).text();
+
+    localStorage.setItem("total_price", Total_Price )
+}
+
+
+document.getElementById('total_price').setAttribute('value',localStorage.getItem('total_price'))

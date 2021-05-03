@@ -14,7 +14,7 @@
                             <h5>{{$product->name}}</h5>
                             <p>{{$product->des}}</p>
                             <div class="disF-a" style="justify-content: space-between;">
-                                <div class="price">$16</div>
+                                <div class="price">${{$product->price}}</div>
                                 <button class="add addToCart" id="" product_id="{{$product->id}}" onclick="AddToCart({{$product->id}},{{Auth::user()->id ?? '' }})">
                                     <i class="fas fa-plus"></i>
                                     <span>Add to cart</span>

@@ -25,11 +25,14 @@ label{
     border-radius: 8px;
 
 }
-button.placeOrder {
+.placeOrder {
     width: 100%;
     border-radius: 8px;
     background: #ff3939;
     margin: 20px 0;
+    text-align: center;
+    padding: 1rem;
+    color: white;
 }
 .box {
     padding: 10px 20px;

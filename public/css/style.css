@@ -276,13 +276,6 @@ a.cart {
     align-items: center;
     justify-content: center;
 }
-.header .content{
-    
-    
-}
-.header .content .box{
-/*    margin: auto*/
-}
 .header .content .box .headerText{
     margin-top: -36%;
 }
@@ -310,9 +303,7 @@ a.cart {
     top: 58%;
     animation-delay: 1.6s;
 }
-.header .content .box .headerText .rightBox{
-    
-}
+
 .header .content .box .headerText .rightBox h4{
     font-family: 'Fredoka One', cursive;
     color: rgb(255, 57, 57);
@@ -408,7 +399,6 @@ a.cart {
     padding: 8% 0;
     font-family: 'Jost', sans-serif;
 }
-.about .content{}
 .about .content img{
     border-radius: 35px;
 }
@@ -466,7 +456,6 @@ a.cart {
 .special button{
     background: #ff3939
 }
-.special .content{}
 .special .content .speHeader{
     margin-bottom: 50px
 }
@@ -476,7 +465,6 @@ a.cart {
     color: #212529;
     font-family: 'Fredoka One', cursive;
 }
-.special .content .speLeft{}
 .special .content .speLeft button{
     position: absolute;
     top: 0;
@@ -485,7 +473,6 @@ a.cart {
 .special .content .speLeft .speImg {
     margin: 30px 0
 }
-.special .content .speLeft h5{}
 .special .content .speLeft .disF{
     flex-wrap: wrap
 }
@@ -530,9 +517,7 @@ a.cart {
 .special .align{
     padding-right: 73px;
 }
-.product {
-    
-}
+
 .product .proBox {
     background-color: #fbf8f6 !important;
     border-radius: 15px !important;
@@ -577,8 +562,6 @@ a.cart {
     font-size: 17px;
     font-weight: 700;
 }
-.product .proBox button i{}
-.product .proBox button span{}
 /*MEADIA Special offers*/
 @media(max-width:550px){
    .special .content .speHeader h3{
@@ -623,9 +606,6 @@ a.cart {
     margin-left: 30px;
     margin-top: 30px;
 }
-.enjoy .content .enjText{
-/*    padding-right: 33%;*/
-}
 .enjoy .content .enjText .off{
     background: #ff3939;
     color: white;
@@ -638,7 +618,6 @@ a.cart {
     font-size: 60px;
     font-weight: bold
 }
-.enjoy .content .enjText h5{}
 .enjoy .content .enjText a.see {
     font-size: 18px;
     color: white;
@@ -680,9 +659,7 @@ a.cart {
     flex-wrap: wrap;
     justify-content: flex-end;
 }
-.new .item1{
-/*    flex-grow: .5*/
-}
+
 .new .item2{
     flex-grow: 1;
     justify-content: center;
@@ -695,9 +672,7 @@ a.cart {
     margin-left: 30px;
     margin-top: 30px;
 }
-.new .content .enjText{
-/*    padding-right: 33%;*/
-}
+
 .new .content .enjText .off{
     background: #ff3939;
     color: white;
@@ -710,7 +685,6 @@ a.cart {
     font-size: 60px;
     font-weight: bold
 }
-.new .content .enjText h5{}
 .new .content .enjText a.see {
     font-size: 18px;
     color: white;
@@ -802,11 +776,9 @@ a.cart {
     font-weight: 700;
 }
 button.add:hover {
-    color: #ff3939;
+    color: #ff3939 !important;
     transition: all .3s ease-in-out;
 }
-.proBox button i{}
-.proBox button span{}
 /*MEADIA Trending Burgers*/
 @media(max-width:990px){
     .content .treHeader{
@@ -822,7 +794,6 @@ button.add:hover {
     padding: 8% 0;
     font-family: 'Jost', sans-serif;
 }
-.testi .content{}
 .testi .content img{
     border-radius: 35px;
 }
@@ -900,7 +871,6 @@ button.add:hover {
     position: relative;
     z-index: 99;
 }
-.pics .content .imgBox img{}
 @media(max-width:990px){
     .pics .content {
         padding: 0 6%;
@@ -913,8 +883,6 @@ button.add:hover {
     overflow: hidden;
     font-family: 'Jost', sans-serif;
 }
-.footer .content{}
-.footer .content img{}
 .footer .content p{
     color: #515050;
     font-weight: 600;
@@ -951,7 +919,6 @@ button.add:hover {
     margin: 0 10px;
     font-weight: 300
 }
-.footer .content .subs{}
 .footer .content .subs input{
     font-size: 16px!important;
     color: #515050!important;
