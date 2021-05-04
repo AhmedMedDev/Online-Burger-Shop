@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::resource('cart', 'CartController')->withoutMiddleware('CartNotEmpty');
 
-Route::resource('cart', 'CartController');
+Route::resource('cart', 'CartController')->middleware('auth');
 
 Route::middleware(['auth','CartNotEmpty'])->group(function () {
 
