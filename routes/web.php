@@ -23,9 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::resource('product', 'ProductController');
 
-Route::middleware(['auth'])->group(function () {
+// Route::resource('cart', 'CartController')->withoutMiddleware('CartNotEmpty');
 
-    Route::resource('cart', 'CartController');
+Route::resource('cart', 'CartController');
+
+Route::middleware(['auth','CartNotEmpty'])->group(function () {
 
     Route::resource('checkOut', 'CheckController');
 
