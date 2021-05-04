@@ -21,10 +21,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::resource('product', 'ProductController');
-Route::resource('cart', 'CartController');
-Route::resource('checkOut', 'CheckController');
 
-Route::post('/billing', 'BillingController@placeOrder');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::resource('cart', 'CartController');
+
+    Route::resource('checkOut', 'CheckController');
+
+    Route::post('/billing', 'BillingController@placeOrder');
+
+});
 
