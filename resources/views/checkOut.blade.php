@@ -87,7 +87,7 @@
                                         <div class="disF orderInfo first top">
                                             <div class="leftOrder disF-a">
                                                 <img src="{{$carts[0]->img}}" alt="" width="50px" height="50px" class="mr-4">
-                                                <h5 class="price">{{$carts[0]->name}}  </h5>
+                                                <h5 class="price">{{$carts[0]->name}}  × {{$carts[0]->quantity}}</h5>
                                             </div>
                                             <h5 class="price">
                                                 <i class="fas fa-chevron-circle-down "></i>
@@ -96,10 +96,12 @@
                                         {{--  --}}
                                         <div class="your_order_product  orderInfo first hidden">
                                             @foreach ($carts as $cart)
-                                                <div class="leftOrder disF-a">
-                                                    <img src="{{$cart->img}}" alt="" width="50px" height="50px" class="mr-4">
-                                                    <h5 class="price">{{$cart->name}}  × {{$cart->quantity}}</h5>
-                                                </div>
+                                                @if (!$loop->first)
+                                                    <div class="leftOrder disF-a">
+                                                        <img src="{{$cart->img}}" alt="" width="50px" height="50px" class="mr-4">
+                                                        <h5 class="price">{{$cart->name}}  × {{$cart->quantity}}</h5>
+                                                    </div>
+                                                @endif
                                             @endforeach
                                         </div>
                                         {{--  --}}

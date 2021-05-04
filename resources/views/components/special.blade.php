@@ -36,19 +36,28 @@
                         <div class="row">
                             {{--  --}}
                             @foreach ($products as $product)
-                            @if ( $product->id == 10 || $product->id == 11 || $product->id == 12 || $product->id == 13 )
-                                <div class="col-sm-6 p-0">
-                                    <div class="proBox wow fadeInRight  " data-wow-duration="2s">
-                                        <img src="{{$product->img}}" alt="" class="respon-img">
-                                        <h5>Juicy Beef <br> Burger Meal </h5>
-                                        <div class="price">${{$product->price}}</div>
-                                        <button class="add addToCart" id="" product_id="{{$product->id}}" onclick="AddToCart({{$product->id}},{{Auth::user()->id ?? '' }})">
-                                            <i class="fas fa-plus"></i>
-                                            <span>Add to cart</span>
-                                        </button>
+                                @if ( $product->id == 10 || $product->id == 11 || $product->id == 12 || $product->id == 13 )
+                                    <div class="col-sm-6 p-0">
+                                        <div class="proBox wow fadeInRight  " data-wow-duration="2s">
+                                            <img src="{{$product->img}}" alt="" class="respon-img">
+                                            <h5>Juicy Beef <br> Burger Meal </h5>
+                                            <div class="price">${{$product->price}}</div>
+                                            @if (Auth::check())
+                                                <button class="add addToCart" id="" product_id="{{$product->id}}" onclick="AddToCart({{$product->id}},{{Auth::user()->id ?? '' }})">
+                                                    <i class="fas fa-plus"></i>
+                                                    <span>Add to cart</span>
+                                                </button>
+                                            @else
+                                                <a href="{{url('login')}}">
+                                                    <button class="add addToCart" id=""  >
+                                                        <i class="fas fa-plus"></i>
+                                                        <span>Add to cart</span>
+                                                    </button>
+                                                </a>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
                             @endforeach
                             {{--  --}}
                         </div>
