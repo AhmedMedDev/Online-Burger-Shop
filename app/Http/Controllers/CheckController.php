@@ -11,7 +11,7 @@ class CheckController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return view checkOut with cart's data 
      */
     public function index()
     {

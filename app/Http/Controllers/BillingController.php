@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Auth;
 class BillingController extends Controller
 {
 
+    /**
+     * Store Address Of Order
+     * 
+     * @param Request $request
+     * @return $address
+     */
+
     public function storeAddress(Request $request)
     {
         $request = $request->only([
@@ -26,12 +33,21 @@ class BillingController extends Controller
 
         $address = Address::create( $request );
 
-        return $address['id'];
+        return response([
+            'address' => $address
+        ]);
     }
+
+    /**
+     * Store Order Product By 
+     * get them from cart and store it in order_product
+     * 
+     * @param order_id $order_id
+     * @return respones $orderProduct
+     */
 
     public function storeOrderProduct($order_id)
     {
-
         $carts = Cart::where('user_id',Auth::user()->id )->get();
 
         foreach($carts as $cart)
@@ -43,15 +59,32 @@ class BillingController extends Controller
             ]);
         }
 
+        return response([
+            'orderProduct' => $orderProduct
+        ]);
     }
 
+    /**
+     * Delete All Product In Cart  
+     * 
+     * @param 
+     * @return void
+     */
     public function deleteCart()
     {
         $cart = Cart::where('user_id', Auth::user()->id )->delete();
 
-        return $cart;
+        return response([
+            'cart' => $cart
+        ]);
     }
 
+    /**
+     * Make a new order 
+     * 
+     * @param Request $request
+     * @return respones $orderProduct
+     */
     public function storeOrder(Request $request)
     {
         $request = $request->only([
@@ -67,22 +100,30 @@ class BillingController extends Controller
 
         $order = Order::create( $request );
 
-        return $order;
+        return response([
+            'order' => $order
+        ]);
     }
 
+    /**
+     * Make a new order 
+     * 
+     * @param Request $request
+     * @return respones $order
+     */
     public function placeOrder(Request $request)
     {
+        $request['address_id']  = $this->storeAddress($request)->original['address']['id'];
 
-        $request['address_id']  = $this->storeAddress($request);
-
-        $order = $this->storeOrder($request);
+        $order = $this->storeOrder($request)->original['order'];
 
         $this->storeOrderProduct($order['id']);
 
         $this->deleteCart();
         
-        return view('done',['order'=>$order]);
-
+        return view('done',[
+            'order'=>$order
+        ]);
     }
 
 
