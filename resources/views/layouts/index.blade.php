@@ -65,7 +65,8 @@
                             type="email" 
                             name="email"
                             placeholder="Enter Your email here.." 
-                            autocomplete=""> <br>
+                            autocomplete=""
+                            value="{{Auth::user()->email ?? ''}}"> <br>
                             <button class="subscribe">Subscribe</button>
                         </div>
                     </div>
