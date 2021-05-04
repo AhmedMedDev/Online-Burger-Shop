@@ -7,7 +7,7 @@ $(document).ready(function () {
     //FOR NAVBAR RESPONSIVE
     if($(window).width() <= 990 ){
         
-    $('.nav .icon-nav, .nav ul li a ').click(function () {
+    $('.nav .icon-nav, .nav_a ').click(function () {
             $('.nav-links').animate({
                 "height" : "toggle"
     
@@ -127,13 +127,13 @@ $(document).ready(function () {
     })
     
     /*************************************************SCROLL TO ELEMNT**************/
-        $('.navIndex ul li a , label a ').click(function(e){
-            e.preventDefault();
-            $('html ,body').animate({
-                    scrollTop:$('#'+$(this).data('scroll')).offset().top 
-                },2000);
-            
-        });
+    $('.nav_a ').click(function(e){
+        e.preventDefault();
+        $('html ,body').animate({
+                scrollTop:$('#'+$(this).data('scroll')).offset().top 
+            },2000);
+        
+    });
         
    /*************************************************SCROLL TO ELEMNT**************/
    /*************************************************SCROLL_TO_TOP**************/
