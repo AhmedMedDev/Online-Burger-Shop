@@ -14,21 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/', 'welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
 Route::resource('product', 'ProductController');
 Route::resource('cart', 'CartController');
 Route::resource('checkOut', 'CheckController');
-
-Route::view('Done', 'done');
 
 Route::post('/billing', 'BillingController@placeOrder');
 
