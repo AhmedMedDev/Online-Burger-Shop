@@ -34,6 +34,8 @@ function Carttotal()
 
     var price = document.getElementById("totalPrice");
 
+    var subTotal = document.getElementById('subTotalPrice');
+
     var totalPrice = 0;
 
     for (let index = 0; index < product_price.length ; index++) 
@@ -44,14 +46,18 @@ function Carttotal()
 
         totalPrice = totalPrice +  (proPrice * proQuan)
     }
+    if(price)
+    {
+        price.innerHTML = totalPrice
 
-    price.innerHTML = totalPrice
+        subTotal.innerHTML = totalPrice
 
-    StoreTotalPrice()
+        StoreTotalPrice()
+    }
 
     return totalPrice;
-
 }
+
 
 function ConfirmDelete(cart_id)
 {
@@ -118,9 +124,7 @@ function IncreaseCart(cart_id,product_price)
         error: function (data) {}
     })
 
-    $('#totalPrice').text( Carttotal()  + product_price )
-
-    StoreTotalPrice()
+    Update_Total_price('+',product_price)
 
 }
 
@@ -141,10 +145,20 @@ function DecreaseCart(cart_id,product_price)
         error : function (data) {}
     })
 
-    $('#totalPrice').text( Carttotal() - product_price )
+    Update_Total_price('-',product_price)
+}
+
+function Update_Total_price(operation,product_price)
+{
+
+    if(operation == '+')
+        $('#totalPrice').text( Carttotal()  + product_price )
+    else
+        $('#totalPrice').text( Carttotal() - product_price )
+
+    $('#subTotalPrice').text( $('#totalPrice').text() )
 
     StoreTotalPrice()
-
 }
 
 
@@ -156,6 +170,12 @@ function StoreTotalPrice()
 }
 
 
-document.getElementsByClassName('total_price')[0].innerHTML = localStorage.getItem('total_price')
-document.getElementsByClassName('total_price')[1].innerHTML = localStorage.getItem('total_price')
-document.getElementsByClassName('total_price')[2].setAttribute('value',localStorage.getItem('total_price'))
+if(document.getElementsByClassName('total_price')[0])
+{
+    document.getElementsByClassName('total_price')[0].innerHTML = localStorage.getItem('total_price')
+
+    document.getElementsByClassName('total_price')[1].innerHTML = localStorage.getItem('total_price')
+    
+    document.getElementsByClassName('total_price')[2].setAttribute('value',localStorage.getItem('total_price'))
+}
+

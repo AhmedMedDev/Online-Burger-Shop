@@ -62,15 +62,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="street">Town / City * </label>
-                                        <input class="input" type="text"  placeholder="" id="street" name="city" >
+                                        <input class="input" type="text"  placeholder="" id="city" name="city" >
                                     </div>
                                     <div class="form-group">
                                         <label for="street">Postcode *</label>
-                                        <input class="input" type="text"  placeholder="Enter Postcode of Country" id="street" name="postcode" />
+                                        <input class="input" type="text"  placeholder="Enter Postcode of Country" id="postcode" name="postcode" />
                                     </div>
                                     <div class="form-group">
                                         <label for="street">Phone *</label>
-                                        <input class="input" type="text"  placeholder="Enter Your Phone" id="street" name="phone" />
+                                        <input class="input" type="text"  placeholder="Enter Your Phone" id="phone" name="phone" />
                                     </div>
                                     <h3 class="litTitle">Additional information</h3>
                                     <div class="form-group">

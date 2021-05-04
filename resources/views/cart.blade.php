@@ -106,7 +106,7 @@
                     <h3>Cart Total</h3>
                     <div class="disF">
                         <h5 class="title">Subtotal</h5>
-                        <h5 class="litprice">$8.00</h5>
+                        <h5 class="litprice" id="subTotalPrice">$8.00</h5>
                     </div>
                     <div class="disF" >
                         <h5 class="title">Total</h5>
