@@ -107,7 +107,7 @@ $(document).ready(function () {
     //FOR TEAM SECTION
     var count = 0;
     
-    $('.moreButton').click(function() {
+    $('.moreButton').on("click",function() {
         
         $('.more').slideToggle();
         
@@ -127,7 +127,7 @@ $(document).ready(function () {
     })
     
     /*************************************************SCROLL TO ELEMNT**************/
-    $('.nav_a ').click(function(e){
+    $('.nav_a ').on("click",function(e){
         e.preventDefault();
         $('html ,body').animate({
                 scrollTop:$('#'+$(this).data('scroll')).offset().top 
@@ -144,7 +144,7 @@ $(document).ready(function () {
             $('.scrollToTop').fadeOut(1000)
         }
     })
-    $('.scrollToTop').click(function(){
+    $('.scrollToTop').on("click",function(){
         $('html,body').animate({
             scrollTop : '0'
         },2000)
@@ -202,11 +202,6 @@ $('.price i').on("click",function(){
     
     
     
-    
-    
-    
-    
-    
-    
-    
 });
+
+
