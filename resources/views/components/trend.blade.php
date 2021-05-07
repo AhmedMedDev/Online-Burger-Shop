@@ -15,10 +15,7 @@
                             <p>{{$product->des}}</p>
                             <div class="disF-a" style="justify-content: space-between;">
                                 <div class="price">${{$product->price}}</div>
-                                <button class="add addToCart" id="" product_id="{{$product->id}}" onclick="AddToCart({{$product->id}},{{Auth::user()->id ?? '' }})">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Add to cart</span>
-                                </button>
+                                @include('components.add-to-cart')
                             </div>
                         </div>
                     </div>
