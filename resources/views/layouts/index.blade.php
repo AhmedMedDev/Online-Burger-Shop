@@ -6,7 +6,7 @@
         
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+
         <link rel="icon" href="https://jevelin.shufflehound.com/fav.png">
         
         <title>  Burger-Shop </title>

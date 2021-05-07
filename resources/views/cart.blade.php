@@ -8,6 +8,7 @@
 
 @section('content')
 
+    <div class="cartCounter hidden" >{{ count($carts) }}</div>
     <!-- Rout-->
     <div class="rout ">
         <div class="container ">

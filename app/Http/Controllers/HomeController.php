@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -16,7 +17,13 @@ class HomeController extends Controller
     {
         $products = DB::table('products')->get();
 
-        return view('index',['products' => $products]);
+        $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id)->count();
+
+        return view('index',
+        [
+            'products' => $products,
+            'cartCount' => $cartCount,
+        ]);
     }
 
 }

@@ -50,6 +50,13 @@ class CartController extends Controller
         ]);
     }
 
+    public function cartCounter()
+    {
+        $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id)->count();
+
+        return view('cart',['cartCount' => $cartCount ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -80,4 +87,5 @@ class CartController extends Controller
     {
         return $cart->delete();
     }
+
 }

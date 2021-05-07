@@ -19,6 +19,11 @@ function AddToCart(product_id,user_id)
                 icon: 'success',
                 title: 'Has Been Added To The Cart'
             })
+            //Increase Counter
+            $('#cart_counter').text( +$('#cart_counter').text() + 1)
+            
+        }else{
+            alert('error')
         }
         },
     })
@@ -178,4 +183,7 @@ if(document.getElementsByClassName('total_price')[0])
     
     document.getElementsByClassName('total_price')[2].setAttribute('value',localStorage.getItem('total_price'))
 }
+
+
+
 

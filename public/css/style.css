@@ -231,6 +231,27 @@ a.cart {
 .dropdown-item{
     color: #212529 !important;
 }
+.counter {
+    background: #ff3939;
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    width: 19px;
+    height: 19px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    left: 15px;
+}
+i.fas.fa-shopping-cart {
+    font-size: 20px;
+}
+.cart-icon {
+    position: relative;
+}
 /*MEDIA NAV*/
 @media(max-width:990px){
     body{

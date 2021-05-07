@@ -8,7 +8,13 @@
             <div class="inSecond"></div>
             <div class="inThird"></div>
         </div>
-        <a href="{{url('cart')}}" class="cart"><i class="fas fa-shopping-cart"></i></a>
+        {{--  --}}
+            
+            <a href="{{url('cart')}}" class="cart cart-icon">
+                <div class="counter" id="cart_counter">{{$cartCount}}</div>
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        {{--  --}}
         <div class="nav-links">
             <div class="container">
                 <ul>
@@ -24,8 +30,6 @@
                             </a>
                         </li>
                     @else
-                    
-
                     {{--  --}}
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
