@@ -111,7 +111,7 @@
                     </div>
                     <div class="disF" >
                         <h5 class="title">Total</h5>
-                        <h5 class="price" id="totalPrice"> </h5>
+                        <h5 class="price" id="totalPrice">$8.00</h5>
                     </div>
                     <a href="{{ asset('checkOut')}}">
                         <button class="proceed"> Proceed To Checkout</button>

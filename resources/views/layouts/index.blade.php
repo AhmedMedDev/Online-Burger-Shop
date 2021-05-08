@@ -74,6 +74,11 @@
             </div>
         </div>
         <!--END FOOTER--> 
+        <!-- MAP--> 
+        {{-- <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17198026.907290176!2d-88.6761264154661!3d51.26356875297317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0d03d337cc6ad9%3A0x9968b72aa2438fa5!2z2YPZhtiv2Kc!5e0!3m2!1sar!2seg!4v1620485295981!5m2!1sar!2seg" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div> --}}
+        <!--END MAP--> 
         <!-- scrollToTop-->
         <section class="scrollToTop">
             <i class="fas fa-chevron-up"></i>

@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
         $products = DB::table('products')->get();
 
-        $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id)->count();
+        $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id ?? '')->count();
 
         return view('index',
         [

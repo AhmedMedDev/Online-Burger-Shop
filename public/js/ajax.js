@@ -53,9 +53,9 @@ function Carttotal()
     }
     if(price)
     {
-        price.innerHTML = totalPrice
+        price.innerHTML = '$' + totalPrice
 
-        subTotal.innerHTML = totalPrice
+        subTotal.innerHTML = '$' + totalPrice
 
         StoreTotalPrice()
     }
@@ -104,10 +104,14 @@ function DeleteCart(cart_id)
             {
                 $(`#cart${cart_id}`).slideUp(600,function () {
                     $(`#cart${cart_id}`).remove();
-
                 });
 
-                $('#totalPrice').text( Number($('#totalPrice').text()) - ( $(`#cart_price_${cart_id}`).text() * $(`#quan${cart_id}`).val()) )
+                $('#totalPrice').text( Carttotal() - ( $(`#cart_price_${cart_id}`).text() * $(`#quan${cart_id}`).val()) )
+
+                AddDollerSign()
+
+                $('#subTotalPrice').text( $('#totalPrice').text() )
+
             }
        },
        error: function (data) {}
@@ -161,11 +165,17 @@ function Update_Total_price(operation,product_price)
     else
         $('#totalPrice').text( Carttotal() - product_price )
 
+    AddDollerSign()
+
     $('#subTotalPrice').text( $('#totalPrice').text() )
 
     StoreTotalPrice()
 }
 
+function AddDollerSign()
+{
+    document.getElementById('totalPrice').innerHTML = `$${document.getElementById('totalPrice').innerHTML}`
+}
 
 function StoreTotalPrice()
 {
