@@ -184,7 +184,7 @@ function StoreTotalPrice()
     localStorage.setItem("total_price", Total_Price )
 }
 
-
+console.log( parseInt( localStorage.getItem('total_price') ) );
 if(document.getElementsByClassName('total_price')[0])
 {
     document.getElementsByClassName('total_price')[0].innerHTML = localStorage.getItem('total_price')

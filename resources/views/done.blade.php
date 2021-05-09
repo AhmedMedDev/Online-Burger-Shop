@@ -69,7 +69,7 @@
                             <h5>{{$order->date}}</h5>
                         </div>
                         <div class="col-lg-3">
-                            <h5>£{{$order->total_price}} </h5>
+                            <h5>{{$order->total_price}} </h5>
                         </div>
                         <div class="col-lg-3">
                             <h5>{{$order->payment_method}}</h5>
