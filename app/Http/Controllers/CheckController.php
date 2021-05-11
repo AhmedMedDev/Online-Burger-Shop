@@ -20,7 +20,7 @@ class CheckController extends Controller
         
         $carts = DB::table('cart_product')->where('user_id',Auth::user()->id)->get();
 
-        return view('checkOut',['carts' => $carts]);
+        return view('ordering.checkOut',['carts' => $carts]);
     }
 
 }

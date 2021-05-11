@@ -38,3 +38,7 @@ Route::middleware(['auth','CartNotEmpty'])->group(function () {
 
 });
 
+Route::view('/admin', 'dashboard.dashboard');
+Route::view('/user', 'dashboard\userDashboad\userProfile');
+Route::view('/useredit', 'dashboard\userDashboad\editProfile');
+Route::view('/userAddress', 'dashboard\userDashboad\address');

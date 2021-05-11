@@ -121,7 +121,7 @@ class BillingController extends Controller
 
         $this->deleteCart();
         
-        return view('done',[
+        return view('ordering.done',[
             'order'=>$order
         ]);
     }

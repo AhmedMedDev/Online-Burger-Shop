@@ -29,7 +29,7 @@ class CartController extends Controller
     {
         $carts = DB::table('cart_product')->where('user_id',Auth::user()->id)->get();
 
-        return view('cart',['carts' => $carts]);
+        return view('ordering.cart',['carts' => $carts]);
     }
 
     /**
@@ -54,7 +54,7 @@ class CartController extends Controller
     {
         $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id)->count();
 
-        return view('cart',['cartCount' => $cartCount ]);
+        return view('ordering.cart',['cartCount' => $cartCount ]);
     }
 
     /**
