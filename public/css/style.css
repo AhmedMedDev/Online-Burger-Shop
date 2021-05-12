@@ -806,11 +806,13 @@ i.fas.fa-shopping-cart {
     color: black;
     font-size: 17px;
     font-weight: 700;
+    padding: .7rem;
+
 }
-button.add:hover {
+/* button.add:hover {
     color: #ff3939 !important;
     transition: all .3s ease-in-out;
-}
+} */
 /*MEADIA Trending Burgers*/
 @media(max-width:990px){
     .content .treHeader{

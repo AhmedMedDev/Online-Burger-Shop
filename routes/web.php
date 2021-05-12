@@ -37,8 +37,10 @@ Route::middleware(['auth','CartNotEmpty'])->group(function () {
     Route::post('/billing', 'BillingController@placeOrder');
 
 });
+Route::resource('favorite', 'FavoriteController');
 
 Route::view('/admin', 'dashboard.dashboard');
 Route::view('/user', 'dashboard\userDashboad\userProfile');
 Route::view('/useredit', 'dashboard\userDashboad\editProfile');
 Route::view('/userAddress', 'dashboard\userDashboad\address');
+// Route::view('/favorite', 'dashboard\userDashboad\favorite');

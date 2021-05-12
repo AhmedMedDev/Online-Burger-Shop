@@ -18,7 +18,9 @@
                             <p>{{$product->des}}</p>
                             <div class="disF-a" style="justify-content: space-between;">
                                 <div class="price">$16</div>
-                                @include('components.add-to-cart')
+                                <div class="cartAction">
+                                    @include('components.add-to-cart')
+                                </div>
                             </div>
                         </div>
                     </div>

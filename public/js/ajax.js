@@ -63,7 +63,6 @@ function Carttotal()
     return totalPrice;
 }
 
-
 function ConfirmDelete(cart_id)
 {
     swalWithBootstrapButtons.fire({
@@ -184,7 +183,6 @@ function StoreTotalPrice()
     localStorage.setItem("total_price", Total_Price )
 }
 
-console.log( parseInt( localStorage.getItem('total_price') ) );
 if(document.getElementsByClassName('total_price')[0])
 {
     document.getElementsByClassName('total_price')[0].innerHTML = localStorage.getItem('total_price')
@@ -194,6 +192,46 @@ if(document.getElementsByClassName('total_price')[0])
     document.getElementsByClassName('total_price')[2].setAttribute('value',localStorage.getItem('total_price'))
 }
 
+function AddToFavorite(product_id,user_id)
+{
+    $.ajax({
+        method : "POST",
+        url  : "favorite",
+        data  : {product_id : product_id, user_id : user_id },
+        cache:false,
+        success: function (data) {
+        if(data.message == 'success')
+        {
+            Toast.fire({
+                icon: 'success',
+                title: 'Has Been Added To The Favorite'
+            })
+            
+        }else{
+            alert('error')
+        }
+        },
+    })
 
+}
 
+function DeleteFavorite(cart_id) 
+{
+    $.ajax({
+        method : "DELETE",
+        url  : `favorite/${cart_id}`,
+        data  : {},
+        cache:false,
+        success: function (data) {
+            if(data)
+            {
+                $(`#favorite${cart_id}`).fadeOut(600,function () {
+                    $(`#favorite${cart_id}`).remove();
+                });
+
+            }
+       },
+       error: function (data) {}
+    })
+}
 

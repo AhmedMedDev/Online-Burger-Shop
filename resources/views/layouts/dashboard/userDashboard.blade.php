@@ -4,18 +4,26 @@
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('dashboard/assets/img/apple-icon.png')}}">
-  <link rel="icon" type="image/png" href="{{asset('dashboard/assets/img/favicon.png')}}">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <link rel="icon" href="https://jevelin.shufflehound.com/fav.png">
+
+  {{-- <link rel="icon" type="image/png" href="{{asset('dashboard/assets/img/favicon.png')}}"> --}}
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>@yield('title')</title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
   <!-- CSS Files -->
   <link href="{{asset('dashboard/assets/css/material-dashboard.css?v=2.1.2')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('dashboard/assets/demo/demo.css')}}" rel="stylesheet" />
   <link href="{{asset('css/dashboard.css')}}" rel="stylesheet" />
+  <link href="{{asset('dashboard/assets/demo/demo.css')}}" rel="stylesheet" />
+  
 </head>
 
 <body class="">
@@ -32,6 +40,12 @@
             </a></div>
           <div class="sidebar-wrapper">
             <ul class="nav">
+              <li class="nav-item   ">
+                <a class="nav-link" href="{{url('home')}}">
+                  <i class="material-icons">dashboard</i>
+                  <p>Landing Page</p>
+                </a>
+              </li>
               <li class="nav-item " id="User-Profile">
                 <a class="nav-link" href="{{url('user')}}">
                   <i class="material-icons">person</i>
@@ -50,10 +64,16 @@
                   <p>Address</p>
                 </a>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="./icons.html">
+              <li class="nav-item " id="Favorite">
+                <a class="nav-link" href="{{url('favorite')}}">
                   <i class="material-icons">bubble_chart</i>
                   <p>Favorite</p>
+                </a>
+              </li>
+              <li class="nav-item " id="Order-List">
+                <a class="nav-link" href="{{url('favorite')}}">
+                  <i class="material-icons">list_alt</i>
+                  <p>Order List</p>
                 </a>
               </li>
               <li class="nav-item ">
@@ -65,7 +85,7 @@
               <li class="nav-item ">
                 <a class="nav-link" href="./rtl.html">
                   <i class="material-icons">language</i>
-                  <p>RTL Support</p>
+                  <p>Contact Us</p>
                 </a>
               </li>
               <li class="nav-item active-pro ">
@@ -145,41 +165,6 @@
           </nav>
           <!-- End Navbar -->
           @yield('mainContent')
-          <footer class="footer">
-            <div class="container-fluid">
-              <nav class="float-left">
-                <ul>
-                  <li>
-                    <a href="https://www.creative-tim.com">
-                      Creative Tim
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://creative-tim.com/presentation">
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://blog.creative-tim.com">
-                      Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.creative-tim.com/license">
-                      Licenses
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-              <div class="copyright float-right">
-                &copy;
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="material-icons">favorite</i> by
-                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-              </div>
-            </div>
-          </footer>
         </div>
         
         
@@ -254,6 +239,8 @@
       </div>
     </div>
 <!--   Core JS Files   -->
+<script src="{{ asset('js/app.js') }}" ></script>
+
 <script src="{{asset('dashboard/assets/js/core/jquery.min.js')}}"></script>
 <script src="{{asset('dashboard/assets/js/core/popper.min.js')}}"></script>
 <script src="{{asset('dashboard/assets/js/core/bootstrap-material-design.min.js')}}"></script>
@@ -297,7 +284,10 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{asset('dashboard/assets/demo/demo.js')}}"></script>
 <script src="{{asset('dashboard/assets/js/main.js')}}"></script>
+
 <script src="{{asset('js/dashboard.js')}}"></script>
+<script src="{{asset('js/ajax.js')}}"></script>
+
 <script>
   $(document).ready(function() {
       
