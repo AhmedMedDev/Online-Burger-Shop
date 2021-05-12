@@ -28,7 +28,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::resource('cart', 'CartController')->withoutMiddleware('CartNotEmpty');
 
-Route::resource('cart', 'CartController')->middleware('auth');
 
 Route::middleware(['auth','CartNotEmpty'])->group(function () {
 
@@ -37,7 +36,15 @@ Route::middleware(['auth','CartNotEmpty'])->group(function () {
     Route::post('/billing', 'BillingController@placeOrder');
 
 });
-Route::resource('favorite', 'FavoriteController');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::resource('cart', 'CartController');
+
+    Route::resource('favorite', 'FavoriteController');
+
+});
+
 
 Route::view('/admin', 'dashboard.dashboard');
 Route::view('/user', 'dashboard\userDashboad\userProfile');
