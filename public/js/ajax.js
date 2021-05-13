@@ -250,8 +250,6 @@ function AddAddreass()
 
            if(data.status === true)
            {
-                // $('#AddAddress').trigger("reset");
-                 
                 Toast.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -260,8 +258,9 @@ function AddAddreass()
                     timer: 1500
                 })
 
-                PushNewAddress(data.data)
+                $('#AddAddress').trigger("reset");
 
+                PushNewAddress(data.data)
            }
 
        },
@@ -380,4 +379,57 @@ function DeleteAddress(address_id)
        error: function (data) {}
     })
 
+}
+
+
+var EditAddress = document.getElementById('EditAddress');
+
+EditAddress.onclick = function () {
+
+    $(this).siblings('#UpdateAddress').show()
+
+    $(this).hide()
+
+    $(`#formAddress${this.getAttribute("address-id")} input`).prop("disabled", false);
+}
+
+function UpdateAddress(address_id)
+{
+    var formData = new FormData($(`#formAddress${address_id}`)[0]);
+
+     $.ajax({
+         type: "PATCH",
+         url: `address/${address_id}`,
+         data: {
+             name : formData.get('name'),
+             country : formData.get('country'),
+             street : formData.get('street'),
+             city : formData.get('city'),
+             postcode : formData.get('postcode'),
+             phone : formData.get('phone'),
+             order_notes : formData.get('order_notes'),
+         },
+         cache:false,
+         success: function (data) {
+
+             if(data.status === true)
+             {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                  )
+                $(`#formAddress${address_id} input`).prop("disabled", true);
+                $(`#address${address_id} #UpdateAddress`).hide()
+                $(`#address${address_id} #EditAddress`).show()
+             }
+
+         },
+         error: function (data) {
+             console.log('Error:', data);
+             $(this).html('Error');
+         }
+     });
+
+    
 }

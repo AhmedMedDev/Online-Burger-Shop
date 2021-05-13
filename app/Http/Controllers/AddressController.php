@@ -87,9 +87,28 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Address $address)
     {
-        //
+        $request = $request->only([
+            'id',
+            'name',
+            'country',
+            'street',
+            'city',
+            'postcode',
+            'phone',
+            'order_notes',
+            'user_id'
+        ]);
+        
+
+        $address = Address::where('id', $address->id)->update( $request );
+
+        return response([
+            'status'=> true,
+            'data' => $address
+        ]);
+        
     }
 
     /**

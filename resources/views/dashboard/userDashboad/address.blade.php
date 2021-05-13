@@ -67,6 +67,7 @@
               </div>
               <div class="row justify-content-center">
                 <div class="col-md-10">
+                  
                     <div class="row AddressTableBody">
                         {{--  --}}
                         @foreach ($addresss as $address)
@@ -79,32 +80,38 @@
                                   </div>
                                 </div>
                                 <div class="card-body">
-                                    <form> 
+                                    <form id="formAddress{{$address->id}}"> 
                                       <div class="row justify-content-center" >
                                           <div class="col-md-10">
+
+                                              <div class="form-group">
+                                                <label class="bmd-label-static">Name of Location *</label>
+                                                <input type="text" class="form-control " id="name" name="name" value="{{$address->name}}" disabled>
+                                              </div>
+
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Country / Region *</label>
-                                                  <input type="text" class="form-control" id="country" name="country" value="{{$address->country}}">
+                                                  <input type="text" class="form-control " id="country" name="country" value="{{$address->country}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">House Number and Street Name *</label>
-                                                  <input type="text" class="form-control" id="street" name="street" value="{{$address->street}}">
+                                                  <input type="text" class="form-control " id="street" name="street" value="{{$address->street}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Town / City *</label>
-                                                  <input type="text" class="form-control" id="city" name="city" value="{{$address->city}}">
+                                                  <input type="text" class="form-control " id="city" name="city" value="{{$address->city}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Enter Postcode of Country *</label>
-                                                  <input type="text" class="form-control" id="postcode" name="postcode" value="{{$address->postcode}}">
+                                                  <input type="text" class="form-control " id="postcode" name="postcode" value="{{$address->postcode}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Enter Your Phone *</label>
-                                                  <input type="text" class="form-control" id="phone" name="phone" value="{{$address->phone}}">
+                                                  <input type="text" class="form-control " id="phone" name="phone" value="{{$address->phone}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
@@ -118,7 +125,8 @@
                                       <div class="clearfix"></div>
               
                                     </form>
-                                    <button type="submit" class="btn btn-success pull-right ml-2"> Update </button>
+                                    <button type="submit" class="btn btn-default pull-right ml-2 hidden" id="UpdateAddress" onclick="UpdateAddress({{$address->id}})"> Update </button>
+                                    <button type="submit" class="btn btn-info pull-right ml-2" id="EditAddress" address-id="{{$address->id}}"> Edit </button>
                                     <button type="submit" class="btn btn-danger pull-right" onclick="ConfirmDeleteAddress({{$address->id}})"> Delete </button>
                                     
                                   </div>
