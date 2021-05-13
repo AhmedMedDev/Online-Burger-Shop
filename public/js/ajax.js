@@ -237,8 +237,6 @@ function DeleteFavorite(cart_id)
 
 function AddAddreass()
 {
-    $(this).html('Sending..');
-
     var formData = new FormData($('#AddAddress')[0]);
 
      $.ajax({
@@ -252,7 +250,15 @@ function AddAddreass()
 
            if(data.status === true)
            {
-                $('#AddAddress').trigger("reset");
+                // $('#AddAddress').trigger("reset");
+                 
+                Toast.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
 
                 PushNewAddress(data.data)
 
@@ -314,14 +320,64 @@ function PushNewAddress(data)
                                 </div>
                             </div>
                             
-                            <button type="submit" class="btn btn-success pull-right ml-2"> Update </button>
-                            <button type="submit" class="btn btn-danger pull-right"> Delete </button>
                             <div class="clearfix"></div>
 
                         </form>
+                        <button type="submit" class="btn btn-success pull-right ml-2"> Update </button>
+                        <button type="submit" class="btn btn-danger pull-right" onclick="ConfirmDeleteAddress(${data.id})"> Delete </button>
                         </div>
                 </div>
             </div>
     `)
+
+}
+
+function ConfirmDeleteAddress(address_id)
+{
+    swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+    if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        )
+        DeleteAddress(address_id)
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+        )
+    }
+    })
+}
+
+
+function DeleteAddress(address_id)
+{
+    $.ajax({
+        method : "DELETE",
+        url  : `address/${address_id}`,
+        data  : {},
+        cache:false,
+        success: function (data) {
+            if(data)
+            {
+                $(`#address${address_id}`).fadeOut(600,function () {
+                    $(`#address${address_id}`).remove();
+                });
+
+            }
+       },
+       error: function (data) {}
+    })
 
 }

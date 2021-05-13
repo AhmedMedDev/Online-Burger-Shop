@@ -71,7 +71,7 @@
                         {{--  --}}
                         @foreach ($addresss as $address)
                             
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" id="address{{$address->id}}">
                             <div class="card">
                                 <div class="card-header card-header-text card-header-primary">
                                   <div class="card-text">
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form> 
-                                      <div class="row justify-content-center" id="address{{$address->id}}">
+                                      <div class="row justify-content-center" >
                                           <div class="col-md-10">
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Country / Region *</label>
@@ -114,11 +114,13 @@
                                           </div>
                                       </div>
                                       
-                                      <button type="submit" class="btn btn-success pull-right ml-2"> Update </button>
-                                      <button type="submit" class="btn btn-danger pull-right"> Delete </button>
+                                      
                                       <div class="clearfix"></div>
               
                                     </form>
+                                    <button type="submit" class="btn btn-success pull-right ml-2"> Update </button>
+                                    <button type="submit" class="btn btn-danger pull-right" onclick="ConfirmDeleteAddress({{$address->id}})"> Delete </button>
+                                    
                                   </div>
                             </div>
                         </div>
