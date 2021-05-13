@@ -235,3 +235,93 @@ function DeleteFavorite(cart_id)
     })
 }
 
+function AddAddreass()
+{
+    $(this).html('Sending..');
+
+    var formData = new FormData($('#AddAddress')[0]);
+
+     $.ajax({
+       type: "POST",
+       url: "address",
+       data: formData,
+       processData:false,
+       contentType : false,
+       cache:false,
+       success: function (data) {
+
+           if(data.status === true)
+           {
+                $('#AddAddress').trigger("reset");
+
+                PushNewAddress(data.data)
+
+           }
+
+       },
+       error: function (data) {
+           console.log('Error:', data);
+           $(this).html('Error');
+       }
+   });
+
+}
+
+function PushNewAddress(data)
+{
+
+    $('.address .AddressTableBody').append(`
+            <div class="col-sm-6  " id="address${data.id}">
+                <div class="card">
+                    <div class="card-header card-header-text card-header-primary">
+                        <div class="card-text">
+                        <h4 class="card-title">${data.name}</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form> 
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label class="bmd-label-static">Country / Region *</label>
+                                        <input type="text" class="form-control" id="country" name="country" value="${data.country}">
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label class="bmd-label-static">House Number and Street Name *</label>
+                                        <input type="text" class="form-control" id="street" name="street" value="${data.street}">
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label class="bmd-label-static">Town / City *</label>
+                                        <input type="text" class="form-control" id="city" name="city" value="${data.city}">
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label class="bmd-label-static">Enter Postcode of Country *</label>
+                                        <input type="text" class="form-control" id="postcode" name="postcode" value="${data.postcode}">
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label class="bmd-label-static">Enter Your Phone *</label>
+                                        <input type="text" class="form-control" id="phone" name="phone" value="${data.phone}">
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Order notes (optional)</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="order_notes" value="${data.order_notes}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success pull-right ml-2"> Update </button>
+                            <button type="submit" class="btn btn-danger pull-right"> Delete </button>
+                            <div class="clearfix"></div>
+
+                        </form>
+                        </div>
+                </div>
+            </div>
+    `)
+
+}

@@ -59,7 +59,7 @@
                 </a>
               </li>
               <li class="nav-item " id="Address">
-                <a class="nav-link" href="{{url('userAddress')}}">
+                <a class="nav-link" href="{{url('address')}}">
                   <i class="material-icons">library_books</i>
                   <p>Address</p>
                 </a>

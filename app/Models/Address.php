@@ -8,7 +8,7 @@ class Address extends Model
 {
     protected $table = 'address';
 
-    protected $fillable = ['country','street','city','postcode','phone','order_notes'];
+    protected $fillable = ['name','country','street','city','postcode','phone','order_notes','user_id'];
     
     public $timestamps = false;
 }

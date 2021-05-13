@@ -43,11 +43,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('favorite', 'FavoriteController');
 
+    Route::resource('address', 'AddressController');
+
 });
 
 
 Route::view('/admin', 'dashboard.dashboard');
 Route::view('/profile', 'dashboard\userDashboad\userProfile');
 Route::view('/useredit', 'dashboard\userDashboad\editProfile');
-Route::view('/userAddress', 'dashboard\userDashboad\address');
+// Route::view('/userAddress', 'dashboard\userDashboad\address');
 // Route::view('/favorite', 'dashboard\userDashboad\favorite');
