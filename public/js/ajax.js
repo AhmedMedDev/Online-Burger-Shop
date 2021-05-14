@@ -427,9 +427,22 @@ function UpdateAddress(address_id)
          },
          error: function (data) {
              console.log('Error:', data);
-             $(this).html('Error');
+             Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+              )
+            //  $(`#formAddress${address_id}`).next("#UpdateAddress").html('Error');
          }
      });
 
     
 }
+
+
+// onchange="console.log('s')"
+
+$('.formAddress input').on("change",function(){
+    // var formData = new FormData( $( $(this).parents(".formAddress") )[0] )
+     $(this).parents(".formAddress").next("#UpdateAddress").removeClass("btn-default").addClass("btn-success")
+})

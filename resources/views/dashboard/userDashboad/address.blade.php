@@ -80,7 +80,7 @@
                                   </div>
                                 </div>
                                 <div class="card-body">
-                                    <form id="formAddress{{$address->id}}"> 
+                                    <form id="formAddress{{$address->id}}" class="formAddress"> 
                                       <div class="row justify-content-center" >
                                           <div class="col-md-10">
 
