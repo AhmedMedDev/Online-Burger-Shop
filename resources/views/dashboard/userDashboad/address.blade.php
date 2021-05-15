@@ -86,32 +86,32 @@
 
                                               <div class="form-group">
                                                 <label class="bmd-label-static">Name of Location *</label>
-                                                <input type="text" class="form-control " id="name" name="name" value="{{$address->name}}" disabled>
+                                                <input type="text" class="form-control "  name="name" value="{{$address->name}}" disabled>
                                               </div>
 
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Country / Region *</label>
-                                                  <input type="text" class="form-control " id="country" name="country" value="{{$address->country}}" disabled>
+                                                  <input type="text" class="form-control "  name="country" value="{{$address->country}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">House Number and Street Name *</label>
-                                                  <input type="text" class="form-control " id="street" name="street" value="{{$address->street}}" disabled>
+                                                  <input type="text" class="form-control "  name="street" value="{{$address->street}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Town / City *</label>
-                                                  <input type="text" class="form-control " id="city" name="city" value="{{$address->city}}" disabled>
+                                                  <input type="text" class="form-control "  name="city" value="{{$address->city}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Enter Postcode of Country *</label>
-                                                  <input type="text" class="form-control " id="postcode" name="postcode" value="{{$address->postcode}}" disabled>
+                                                  <input type="text" class="form-control "  name="postcode" value="{{$address->postcode}}" disabled>
                                               </div>
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Enter Your Phone *</label>
-                                                  <input type="text" class="form-control " id="phone" name="phone" value="{{$address->phone}}" disabled>
+                                                  <input type="text" class="form-control "  name="phone" value="{{$address->phone}}" disabled>
                                               </div>
                       
                                               <div class="form-group">

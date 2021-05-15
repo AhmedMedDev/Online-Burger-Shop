@@ -10,21 +10,35 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
-
+                        {{-- First Name --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="Fname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="Fname" type="text" class="form-control @error('Fname') is-invalid @enderror" name="Fname" value="{{ old('Fname') }}" required autocomplete="Fname" autofocus>
 
-                                @error('name')
+                                @error('Fname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+                        {{-- Last Name --}}
+                        <div class="form-group row">
+                            <label for="Lname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="Lname" type="text" class="form-control @error('Lname') is-invalid @enderror" name="Lname" value="{{ old('Lname') }}" required autocomplete="Lname" autofocus>
+
+                                @error('Lname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Email --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -38,7 +52,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        {{-- image --}}
                         <div class="form-group row">
                             <label for="img" class="col-md-4 col-form-label text-md-right">{{ __('Your image') }}</label>
 
@@ -52,7 +66,35 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- Job Title --}}
+                        <div class="form-group row">
+                            <label for="jobTitle" class="col-md-4 col-form-label text-md-right">{{ __('Enter Your Job Title') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="jobTitle" type="text" class="form-control @error('jobTitle') is-invalid @enderror" name="jobTitle" value="{{ old('jobTitle') }}"  >
+
+                                @error('jobTitle')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Bio --}}
+                        <div class="form-group row">
+                            <label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('Write Bio') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="bio" type="text" class="form-control @error('bio') is-invalid @enderror" name="bio" value="{{ old('bio') }}"  >
+
+                                @error('bio')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Password --}}
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -66,7 +108,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        {{-- Confirm Password --}}
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 

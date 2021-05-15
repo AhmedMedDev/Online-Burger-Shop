@@ -47,7 +47,7 @@
                 </a>
               </li>
               <li class="nav-item " id="User-Profile">
-                <a class="nav-link" href="{{url('user')}}">
+                <a class="nav-link" href="{{url('profile')}}">
                   <i class="material-icons">person</i>
                   <p>User Profile</p>
                 </a>
@@ -225,30 +225,30 @@
               View Documentation
             </a>
           </li>
-          <li class="button-container github-star">
+          {{-- <li class="button-container github-star">
             <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-          </li>
-          <li class="header-title">Thank you for 95 shares!</li>
-          <li class="button-container text-center">
+          </li> --}}
+          {{-- <li class="header-title">Thank you for 95 shares!</li> --}}
+          {{-- <li class="button-container text-center">
             <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
             <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
             <br>
             <br>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>
 <!--   Core JS Files   -->
-<script src="{{ asset('js/app.js') }}" ></script>
 
 <script src="{{asset('dashboard/assets/js/core/jquery.min.js')}}"></script>
 <script src="{{asset('dashboard/assets/js/core/popper.min.js')}}"></script>
 <script src="{{asset('dashboard/assets/js/core/bootstrap-material-design.min.js')}}"></script>
 <script src="{{asset('dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+
 <!-- Plugin for the momentJs  -->
 {{-- <script src="{{asset('dashboard/assets/js/plugins/moment.min.js')}}"></script> --}}
 <!--  Plugin for Sweet Alert -->
-<script src="{{asset('dashboard/assets/js/plugins/sweetalert2.js')}}"></script>
+{{-- <script src="{{asset('dashboard/assets/js/plugins/sweetalert2.js')}}"></script> --}}
 <!-- Forms Validations Plugin -->
 {{-- <script src="{{asset('dashboard/assets/js/plugins/jquery.validate.min.js')}}"></script> --}}
 <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
@@ -285,6 +285,8 @@
 <script src="{{asset('dashboard/assets/demo/demo.js')}}"></script>
 <script src="{{asset('dashboard/assets/js/main.js')}}"></script>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- <script src="{{ asset('js/swal.js') }}" ></script> --}}
 <script src="{{asset('js/dashboard.js')}}"></script>
 <script src="{{asset('js/ajax.js')}}"></script>
 

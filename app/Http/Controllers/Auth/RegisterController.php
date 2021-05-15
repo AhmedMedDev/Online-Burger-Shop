@@ -63,10 +63,13 @@ class RegisterController extends Controller
     {
         
         return Validator::make($data, [
-            'name'      => ['required', 'string', 'max:255'],
-            'email'     => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'img'       => ['required'],
-            'password'  => ['required', 'string', 'min:4', 'confirmed'],
+            'Fname'         => ['required', 'string', 'max:255'],
+            'Lname'         => ['required', 'string', 'max:255'],
+            'email'         => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'img'           => ['required'],
+            'jobTitle'      => ['string'],
+            'bio'           => ['string'],
+            'password'      => ['required', 'string', 'min:4', 'confirmed'],
         ]);
 
     }
@@ -84,10 +87,13 @@ class RegisterController extends Controller
         $fileName = $this->saveImage($data['img'], 'images/upload/userAvatar');
 
         return User::create([
-            'name'      => $data['name'],
-            'email'     => $data['email'],
-            'img'       => $fileName,
-            'password'  => Hash::make($data['password']),
+            'Fname'         => $data['Fname'],
+            'Lname'         => $data['Lname'],
+            'email'         => $data['email'],
+            'img'           => $fileName,
+            'jobTitle'      => $data['jobTitle'],
+            'bio'           => $data['bio'],
+            'password'      => Hash::make($data['password']),
         ]);
         
     }
