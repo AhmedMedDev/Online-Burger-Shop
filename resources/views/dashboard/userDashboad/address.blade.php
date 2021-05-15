@@ -125,8 +125,8 @@
                                       <div class="clearfix"></div>
               
                                     </form>
-                                    <button type="submit" class="btn btn-default pull-right ml-2 hidden" id="UpdateAddress" onclick="UpdateAddress({{$address->id}})"> Update </button>
-                                    <button type="submit" class="btn btn-info pull-right ml-2" id="EditAddress" address-id="{{$address->id}}"> Edit </button>
+                                    <button type="submit" class="btn btn-default pull-right ml-2 UpdateAddress hidden" id="UpdateAddress{{$address->id}}" onclick="UpdateAddress({{$address->id}})"> Update </button>
+                                    <button type="submit" class="btn btn-info pull-right ml-2 EditAddress" id="EditAddress{{$address->id}}" address-id="{{$address->id}}"> Edit </button>
                                     <button type="submit" class="btn btn-danger pull-right" onclick="ConfirmDeleteAddress({{$address->id}})"> Delete </button>
                                     
                                   </div>

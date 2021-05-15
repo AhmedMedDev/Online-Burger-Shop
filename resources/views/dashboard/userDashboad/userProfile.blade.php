@@ -11,7 +11,7 @@
                 <div class="card card-profile">
                   <div class="card-avatar">
                     <a href="javascript:;">
-                      <img class="img" src="{{asset('dashboard/assets/img/faces/marc.jpg')}}" />
+                      <img class="img" src="{{asset('images/upload/userAvatar/'.Auth::user()->img)}}" />
                     </a>
                   </div>
                   <div class="card-body">

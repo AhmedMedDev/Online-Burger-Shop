@@ -381,17 +381,15 @@ function DeleteAddress(address_id)
 
 }
 
+$('.EditAddress').on("click",function(){
 
-var EditAddress = document.getElementById('EditAddress');
-
-EditAddress.onclick = function () {
-
-    $(this).siblings('#UpdateAddress').show()
+    $(this).siblings('.UpdateAddress').show()
 
     $(this).hide()
 
     $(`#formAddress${this.getAttribute("address-id")} input`).prop("disabled", false);
-}
+})
+
 
 function UpdateAddress(address_id)
 {
@@ -418,10 +416,10 @@ function UpdateAddress(address_id)
                     'Good job!',
                     'You clicked the button!',
                     'success'
-                  )
+                )
                 $(`#formAddress${address_id} input`).prop("disabled", true);
-                $(`#address${address_id} #UpdateAddress`).hide()
-                $(`#address${address_id} #EditAddress`).show()
+                $(`#address${address_id} .UpdateAddress`).hide()
+                $(`#address${address_id} .EditAddress`).show()
              }
 
          },
@@ -439,8 +437,6 @@ function UpdateAddress(address_id)
     
 }
 
-
-// onchange="console.log('s')"
 
 $('.formAddress input').on("change",function(){
     // var formData = new FormData( $( $(this).parents(".formAddress") )[0] )
