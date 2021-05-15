@@ -286,7 +286,7 @@
 <script src="{{asset('dashboard/assets/js/main.js')}}"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-{{-- <script src="{{ asset('js/swal.js') }}" ></script> --}}
+<script src="{{ asset('js/swal.js') }}" ></script>
 <script src="{{asset('js/dashboard.js')}}"></script>
 <script src="{{asset('js/ajax.js')}}"></script>
 

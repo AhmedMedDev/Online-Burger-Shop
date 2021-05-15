@@ -7,7 +7,7 @@
         <div class="content address">
           <div class="container-fluid">
             <div class="row justify-content-center">
-              <div class="col-md-10">
+              <div class="col-md-7">
                 <div class="card">
                   <div class="card-header card-header-primary">
                     <h4 class="card-title">Update Profile</h4>
@@ -17,7 +17,7 @@
                   <div class="card-body">
                     <form id="AddAddress" enctype="multipart/form-data"> 
                       <div class="row justify-content-center">
-                          <div class="col-md-10">
+                          <div class="col-md-11">
 
                               <div class="form-group">
                                   <label class="bmd-label-floating">Fist Name </label>

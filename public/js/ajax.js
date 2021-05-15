@@ -225,6 +225,11 @@ function DeleteFavorite(cart_id)
         success: function (data) {
             if(data)
             {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                )
                 $(`#favorite${cart_id}`).fadeOut(600,function () {
                     $(`#favorite${cart_id}`).remove();
                 });
