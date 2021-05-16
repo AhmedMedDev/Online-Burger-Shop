@@ -517,3 +517,14 @@ function readURL(input) {
 
     
 }
+
+$('.Salty').on("click",function(){
+    $('#category_id').val(1)
+    $('.res').text('Salty')
+})
+
+$('.Dessert').on("click",function(){
+    $('#category_id').val(2)
+    $('.res').text('Dessert')
+
+})
