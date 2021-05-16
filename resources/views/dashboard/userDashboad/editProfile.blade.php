@@ -15,33 +15,35 @@
                   </div>
                   {{--  --}}
                   <div class="card-body">
-                    <form id="AddAddress" enctype="multipart/form-data"> 
+                    <form method="POST" action="{{url('profileUpdate')}}" id="profileEditForm" enctype="multipart/form-data"> 
+                      @method('PUT')
+                      @csrf 
                       <div class="row justify-content-center">
                           <div class="col-md-11">
 
                               <div class="form-group">
                                   <label class="bmd-label-floating">Fist Name </label>
-                                  <input type="text" class="form-control" id="Fname" name="name" value="{{ Auth::user()->Fname }}">
+                                  <input type="text" class="form-control" id="Fname" name="Fname" value="{{ Auth::user()->Fname }}">
                               </div>
 
                               <div class="form-group">
                                   <label class="bmd-label-floating">Last Name</label>
-                                  <input type="text" class="form-control" id="Lname" name="country" value="{{ Auth::user()->Lname }}">
+                                  <input type="text" class="form-control" id="Lname" name="Lname" value="{{ Auth::user()->Lname }}">
                               </div>
       
                               <div class="form-group">
                                   <label class="bmd-label-floating">Job Title</label>
-                                  <input type="text" class="form-control" id="jobTitle" name="street" value="{{ Auth::user()->jobTitle }}">
+                                  <input type="text" class="form-control" id="jobTitle" name="jobTitle" value="{{ Auth::user()->jobTitle }}">
                               </div>
       
                               <div class="form-group">
                                 <label for="exampleFormControlTextarea1" class="bmd-label-floating">Bio</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" >{{ Auth::user()->bio }}</textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio">{{ Auth::user()->bio }}</textarea>
                               </div>
                               {{--  --}}
                               <div class="file-upload">
                                 <div class="image-upload-wrap">
-                                  <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" value="{{ Auth::user()->img }}"/>
+                                  <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="img" value="{{ Auth::user()->img }}"/>
                                   <div class="drag-text">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     <h3>Drag and drop a Image </h3>
@@ -59,8 +61,9 @@
                           </div>
                       </div>
                       <div class="clearfix"></div>
+                    <button type="submit" class="btn btn-primary pull-right" onclick="AddAddreass()">Update Info</button>
+
                     </form>
-                    <button type="submit" class="btn btn-primary pull-right" onclick="AddAddreass()">Add Address</button>
 
                   </div>
                   {{--  --}}

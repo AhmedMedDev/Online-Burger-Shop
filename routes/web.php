@@ -24,11 +24,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::resource('product', 'ProductController');
-
-// Route::resource('cart', 'CartController')->withoutMiddleware('CartNotEmpty');
-
-
 Route::middleware(['auth','CartNotEmpty'])->group(function () {
 
     Route::resource('checkOut', 'CheckController');
@@ -45,11 +40,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('address', 'AddressController');
 
+    Route::get('profile', 'ProfileController@index');
+
+    Route::get('profileEdit', 'ProfileController@edit');
+
+    Route::put('profileUpdate', 'ProfileController@update');
+
 });
 
 
 Route::view('/admin', 'dashboard.dashboard');
-Route::view('/profile', 'dashboard\userDashboad\userProfile');
-Route::view('/useredit', 'dashboard\userDashboad\editProfile');
-// Route::view('/userAddress', 'dashboard\userDashboad\address');
-// Route::view('/favorite', 'dashboard\userDashboad\favorite');
