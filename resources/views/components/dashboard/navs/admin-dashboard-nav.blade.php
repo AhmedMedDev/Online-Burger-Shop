@@ -3,7 +3,7 @@
     <li class="nav-item   ">
       <a class="nav-link" href="{{url('home')}}">
         <i class="material-icons">dashboard</i>
-        <p>Landing Page</p>
+        <p>Dashboard</p>
       </a>
     </li>
     <li class="nav-item " id="User-Profile">
@@ -12,22 +12,28 @@
         <p>User Profile</p>
       </a>
     </li>
-    <li class="nav-item " id="Edit-Profile">
-      <a class="nav-link" href="{{url('profileEdit')}}">
-        <i class="material-icons">edit</i>
-        <p>Edit Profile</p>
+    <li class="nav-item " id="Add-Product">
+      <a class="nav-link" href="{{url('addProduct')}}">
+        <i class="material-icons">add_box</i>
+        <p>Add Product</p>
       </a>
     </li>
-    <li class="nav-item " id="Address">
-      <a class="nav-link" href="{{url('address')}}">
-        <i class="material-icons">library_books</i>
-        <p>Address</p>
+    <li class="nav-item " id="Edit-Product">
+      <a class="nav-link" href="{{url('addProduct')}}">
+        <i class="material-icons">edit</i>
+        <p>Edit Product</p>
       </a>
     </li>
     <li class="nav-item " id="Favorite">
       <a class="nav-link" href="{{url('favorite')}}">
         <i class="material-icons">bubble_chart</i>
-        <p>Favorite</p>
+        <p>Make Offer</p>
+      </a>
+    </li>
+    <li class="nav-item " id="Address">
+      <a class="nav-link" href="{{url('address')}}">
+        <i class="material-icons">library_books</i>
+        <p>User List</p>
       </a>
     </li>
     <li class="nav-item " id="Order-List">

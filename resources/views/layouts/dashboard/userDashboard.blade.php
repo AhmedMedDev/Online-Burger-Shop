@@ -37,7 +37,7 @@
           </div>
 
           {{-- Main Navbar --}}
-          @include('components\dashboard\navs\admin-dashboard-nav')
+          @include('components\dashboard\navs\User-dashboard-nav')
           {{-- Main Navbar --}}
 
         </div>
