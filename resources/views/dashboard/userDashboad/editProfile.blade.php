@@ -15,9 +15,7 @@
                   </div>
                   {{--  --}}
                   <div class="card-body">
-                    <form method="POST" action="{{url('profileUpdate')}}" id="profileEditForm" enctype="multipart/form-data"> 
-                      @method('PUT')
-                      @csrf 
+                    <form  id="profileEditForm" enctype="multipart/form-data"> 
                       <div class="row justify-content-center">
                           <div class="col-md-11">
 
@@ -40,7 +38,7 @@
                                 <label for="exampleFormControlTextarea1" class="bmd-label-floating">Bio</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio">{{ Auth::user()->bio }}</textarea>
                               </div>
-                              {{--  --}}
+                              {{-- file-upload  --}}
                               <div class="file-upload">
                                 <div class="image-upload-wrap">
                                   <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="img" value="{{ Auth::user()->img }}"/>
@@ -56,15 +54,12 @@
                                   </div>
                                 </div>
                               </div>
-                              {{--  --}}
-                              <input type="text" class="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
+                              {{-- file-upload  --}}
                           </div>
                       </div>
                       <div class="clearfix"></div>
-                    <button type="submit" class="btn btn-primary pull-right" onclick="AddAddreass()">Update Info</button>
-
                     </form>
-
+                    <button class="btn btn-primary pull-right" onclick="UpdateProfile()">Update Info</button>
                   </div>
                   {{--  --}}
                 </div>

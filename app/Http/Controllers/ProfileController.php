@@ -69,7 +69,9 @@ class ProfileController extends Controller
         
         User::where('id',Auth::user()->id)->update( $request );
 
-        return redirect()->back();
+        return response([
+            'status'=> true,
+        ]);
     }
 
     /**

@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('profileEdit', 'ProfileController@edit');
 
-    Route::put('profileUpdate', 'ProfileController@update');
+    Route::post('profileUpdate', 'ProfileController@update');
 
 });
 

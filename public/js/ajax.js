@@ -480,3 +480,40 @@ function readURL(input) {
       $('.image-upload-wrap').bind('dragleave', function () {
           $('.image-upload-wrap').removeClass('image-dropping');
   });
+
+
+  function UpdateProfile()
+{
+    var formData = new FormData( $(`#profileEditForm`)[0] );
+     $.ajax({
+        type: "POST",
+        enctype: "multipart/form-data",
+        url: `profileUpdate`,
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache:false,
+        success: function (data) {
+
+            if(data.status === true)
+            {
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )
+            }
+
+        },
+        error: function (data) {
+            console.log('Error:', data);
+            Swal.fire(
+            'Oops...',
+            'Something went wrong!',
+            'error'
+            )
+        }
+     });
+
+    
+}
