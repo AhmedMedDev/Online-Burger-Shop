@@ -36,13 +36,13 @@
 
                               {{--  --}}
                               <div class="form-group">
-                                <div class="dropdown">
+                                <div class="dropdown category">
                                     <button class="btn btn-secondary dropdown-toggle res" type="button" style="width: 100%" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       Salty
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 100%">
-                                      <a class="dropdown-item Salty" >Salty</a>
-                                      <a class="dropdown-item Dessert" >Dessert</a>
+                                      <a class="dropdown-item Salty" value="1">Salty</a>
+                                      <a class="dropdown-item Dessert" value="2">Dessert</a>
                                     </div>
                                 </div>
                                 <input type="number" name="category_id" id="category_id" class="hidden" value="1">
@@ -70,7 +70,7 @@
                       </div>
                       <div class="clearfix"></div>
                     </form>
-                    <button class="btn btn-primary pull-right " onclick="UpdateProfile()">Update Info</button>
+                    <button class="btn btn-primary pull-right " onclick="AddProduct()">Add Product</button>
                   </div>
                   {{--  --}}
                 </div>

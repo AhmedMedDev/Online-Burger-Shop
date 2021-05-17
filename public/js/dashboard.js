@@ -40,3 +40,8 @@
       $('.image-upload-wrap').bind('dragleave', function () {
           $('.image-upload-wrap').removeClass('image-dropping');
   });
+
+
+  $('.category a').on("click",function(){
+    $('#category_id').val( $(this).attr('value') ) 
+})
