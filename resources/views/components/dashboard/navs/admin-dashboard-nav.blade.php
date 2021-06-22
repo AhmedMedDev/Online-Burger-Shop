@@ -43,7 +43,7 @@
       </a>
     </li>
     <li class="nav-item " id="Order-List">
-      <a class="nav-link" href="{{url('favorite')}}">
+      <a class="nav-link" href="{{url('order')}}">
         <i class="material-icons">list_alt</i>
         <p>Order List</p>
       </a>

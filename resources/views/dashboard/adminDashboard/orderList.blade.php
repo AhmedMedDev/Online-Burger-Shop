@@ -18,25 +18,21 @@
                     <table class="table">
                       <thead>
                           <tr>
-                              <th>Avatar</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Job Position</th>
+                              <th>User ID</th>
+                              <th>Date</th>
+                              <th>Payment Method</th>
+                              <th>Total Price</th>
                               <th class="text-right">Actions</th>
                           </tr>
                       </thead>
                       <tbody>
                         {{--  --}}
-                          @foreach ($users as $user)
+                          @foreach ($orders as $order)
                             <tr>
-                              <td>
-                                <div class="img-container">
-                                    <img src="{{asset('images/upload/userAvatar/'. $user->img)}}" rel="nofollow" alt="..." width="50px">
-                                </div>
-                              </td>
-                              <td>{{$user->Fname}} {{$user->Lname}}</td>
-                              <td>{{$user->email}} </td>
-                              <td>{{$user->jobTitle}} </td>
+                              <td>{{$order->user_id}}</td>
+                              <td>{{$order->date}} </td>
+                              <td>{{$order->payment_method}} </td>
+                              <td>${{$order->total_price}}</td>
                               <td class="td-actions text-right">
                                   <button type="button" rel="tooltip" class="btn btn-info">
                                       <i class="material-icons">person</i>

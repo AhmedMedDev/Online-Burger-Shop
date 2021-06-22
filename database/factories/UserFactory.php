@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Models\Order;
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -17,15 +18,24 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
-    return [
-        'Fname' => $faker->name,
-        'Lname' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
-        'jobTitle' => $faker->jobTitle,
-        'bio' => $faker->text,
-    ];
-});
+ $factory->define(User::class, function (Faker $faker) {
+     return [
+         'Fname' => $faker->name,
+         'Lname' => $faker->name,
+         'email' => $faker->unique()->safeEmail,
+         'email_verified_at' => now(),
+         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+         'remember_token' => Str::random(10),
+         'jobTitle' => $faker->jobTitle,
+         'bio' => $faker->text,
+     ];
+ });
+
+ $factory->define(Order::class, function (Faker $faker) {
+     return [
+         'user_id'        => $faker->randomDigit,
+         'payment_method' => $faker->randomElement($array = array ('Direct bank transfer','Check payments','Cash on delivery','PayPal')),
+         'total_price'    => $faker->numberBetween($min = 1000, $max = 9000),
+         'address_id'     => 99,
+     ];
+ });
