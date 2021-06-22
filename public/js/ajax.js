@@ -289,46 +289,45 @@ function PushNewAddress(data)
                         </div>
                     </div>
                     <div class="card-body">
-                        <form> 
+                        <form id="formAddress${data.id}" class="formAddress"> 
                             <div class="row justify-content-center">
                                 <div class="col-md-10">
-                                    <div class="form-group">
-                                        <label class="bmd-label-static">Country / Region *</label>
-                                        <input type="text" class="form-control" id="country" name="country" value="${data.country}">
-                                    </div>
-            
+
                                     <div class="form-group">
                                         <label class="bmd-label-static">House Number and Street Name *</label>
-                                        <input type="text" class="form-control" id="street" name="street" value="${data.street}">
+                                        <input type="text" class="form-control "  name="street" value="${data.country}" disabled>
                                     </div>
             
                                     <div class="form-group">
                                         <label class="bmd-label-static">Town / City *</label>
-                                        <input type="text" class="form-control" id="city" name="city" value="${data.city}">
+                                        <input type="text" class="form-control "  name="city" value="${data.street}" disabled>
                                     </div>
             
                                     <div class="form-group">
                                         <label class="bmd-label-static">Enter Postcode of Country *</label>
-                                        <input type="text" class="form-control" id="postcode" name="postcode" value="${data.postcode}">
+                                        <input type="text" class="form-control "  name="postcode" value="${data.city}" disabled>
                                     </div>
             
                                     <div class="form-group">
                                         <label class="bmd-label-static">Enter Your Phone *</label>
-                                        <input type="text" class="form-control" id="phone" name="phone" value="${data.phone}">
+                                        <input type="text" class="form-control "  name="phone" value="${data.postcode}" disabled>
                                     </div>
             
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1">Order notes (optional)</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="order_notes" value="${data.order_notes}"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="order_notes" value="${data.phone}"></textarea>
                                     </div>
+
                                 </div>
                             </div>
                             
                             <div class="clearfix"></div>
 
                         </form>
-                        <button type="submit" class="btn btn-success pull-right ml-2"> Update </button>
+                        <button type="submit" class="btn btn-default pull-right ml-2 UpdateAddress hidden" id="UpdateAddress${data.id}" onclick="UpdateAddress(${data.id})"> Update </button>
+                        <button type="submit" class="btn btn-info pull-right ml-2 EditAddress" id="EditAddress${data.id}" address-id="${data.id}"> Edit </button>
                         <button type="submit" class="btn btn-danger pull-right" onclick="ConfirmDeleteAddress(${data.id})"> Delete </button>
+                        
                         </div>
                 </div>
             </div>

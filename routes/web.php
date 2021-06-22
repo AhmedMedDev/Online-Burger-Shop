@@ -46,11 +46,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('profileUpdate', 'ProfileController@update');
 
+    //return 
+    Route::resource('user', 'UserController');
+
+    Route::resource('order', 'OrderController');
+
 });
 
-Route::resource('user', 'UserController');
 
-Route::resource('order', 'OrderController');
 
 Route::view('/admin', 'dashboard/adminDashboard/dashboard');
 Route::view('/addProduct', 'dashboard/adminDashboard/addProduct');
