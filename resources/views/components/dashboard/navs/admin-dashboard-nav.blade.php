@@ -12,6 +12,12 @@
         <p>User Profile</p>
       </a>
     </li>
+    <li class="nav-item " id="Edit-Profile">
+      <a class="nav-link" href="{{url('profileEdit')}}">
+        <i class="material-icons">edit</i>
+        <p>Edit Profile</p>
+      </a>
+    </li>
     <li class="nav-item " id="Add-Product">
       <a class="nav-link" href="{{url('addProduct')}}">
         <i class="material-icons">add_box</i>

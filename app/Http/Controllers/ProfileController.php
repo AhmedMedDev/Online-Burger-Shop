@@ -27,6 +27,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        /**
+         * User : return dashboard\userDashboad\userProfile
+         * Admin : return dashboard\adminDashboad\userProfile
+         */
+
+        if (Auth::user()->IsAdmin)
+        {
+            return view('dashboard\adminDashboard\userProfile');
+        }
+
         return view('dashboard\userDashboad\userProfile');
     }
 
@@ -38,6 +48,16 @@ class ProfileController extends Controller
      */
     public function edit()
     {
+        /**
+         * User : return dashboard\userDashboad\editProfile
+         * Admin : return dashboard\adminDashboad\editProfile
+         */
+        
+        if (Auth::user()->IsAdmin)
+        {
+            return view('dashboard\adminDashboard\editProfile');
+        }
+
         return view('dashboard\userDashboad\editProfile');
     }
 
