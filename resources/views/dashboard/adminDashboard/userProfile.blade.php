@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.userDashboard')
+@extends('layouts.dashboard.adminDashboard')
 
 @section('title','User-Profile')
     
