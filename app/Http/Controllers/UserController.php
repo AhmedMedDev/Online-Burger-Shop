@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = DB::table('products')->get();
+        $users = User::where('IsAdmin','0')->get();
 
-        return view('index',['products' => $products]);
+        return view('dashboard\adminDashboard\userList',[
+            'users' => $users
+        ]);
     }
 
     /**
@@ -40,7 +42,7 @@ class ProductController extends Controller
         //
     }
 
-     /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -84,16 +86,4 @@ class ProductController extends Controller
     {
         //
     }
-
-     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function MakeOffer($id)
-    {
-        //
-    }
-
 }

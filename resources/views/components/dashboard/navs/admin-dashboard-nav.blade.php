@@ -36,8 +36,8 @@
         <p>Make Offer</p>
       </a>
     </li>
-    <li class="nav-item " id="Address">
-      <a class="nav-link" href="{{url('address')}}">
+    <li class="nav-item " id="User-List">
+      <a class="nav-link" href="{{url('user')}}">
         <i class="material-icons">library_books</i>
         <p>User List</p>
       </a>
