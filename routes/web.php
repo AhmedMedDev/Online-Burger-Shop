@@ -51,10 +51,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('order', 'OrderController');
 
+    Route::resource('product', 'ProductController');
+
 });
 
 
 
 Route::view('/admin', 'dashboard/adminDashboard/dashboard');
-Route::view('/addProduct', 'dashboard/adminDashboard/addProduct');
+// Route::view('/addProduct', 'dashboard/adminDashboard/addProduct');
 

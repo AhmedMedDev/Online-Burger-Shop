@@ -421,7 +421,7 @@ function UpdateAddress(address_id)
                     'You clicked the button!',
                     'success'
                 )
-                $(`#formAddress${address_id} input`).prop("disabled", true);
+                $(`#formAddress${address_id} input`).prop("disabled", true)
                 $(`#address${address_id} .UpdateAddress`).hide()
                 $(`#address${address_id} .EditAddress`).show()
              }

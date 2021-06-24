@@ -15,7 +15,7 @@
                   </div>
                   {{--  --}}
                   <div class="card-body">
-                    <form  id="profileEditForm" enctype="multipart/form-data"> 
+                    <form id="profileEditForm" enctype="multipart/form-data"> 
                       <div class="row justify-content-center">
                           <div class="col-md-11">
 

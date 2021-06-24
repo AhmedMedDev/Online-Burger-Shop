@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard/adminDashboard/addProduct');
     }
 
     /**
@@ -37,7 +37,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "Hello";
     }
 
      /**

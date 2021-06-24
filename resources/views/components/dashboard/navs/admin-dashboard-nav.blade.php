@@ -19,7 +19,7 @@
       </a>
     </li>
     <li class="nav-item " id="Add-Product">
-      <a class="nav-link" href="{{url('addProduct')}}">
+      <a class="nav-link" href="{{url('product/create')}}">
         <i class="material-icons">add_box</i>
         <p>Add Product</p>
       </a>
