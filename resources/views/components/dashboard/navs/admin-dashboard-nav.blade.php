@@ -1,6 +1,6 @@
 <div class="sidebar-wrapper">
   <ul class="nav">
-    <li class="nav-item   ">
+    <li class="nav-item" id="Dashboard">
       <a class="nav-link" href="{{url('admin')}}">
         <i class="material-icons">dashboard</i>
         <p>Dashboard</p>
@@ -30,8 +30,8 @@
         <p>Edit Product</p>
       </a>
     </li>
-    <li class="nav-item " id="Favorite">
-      <a class="nav-link" href="{{url('favorite')}}">
+    <li class="nav-item " id="Make-Offer">
+      <a class="nav-link" href="{{url('offer/create')}}">
         <i class="material-icons">bubble_chart</i>
         <p>Make Offer</p>
       </a>
