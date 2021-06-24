@@ -57,6 +57,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-Route::view('/admin', 'dashboard/adminDashboard/dashboard');
+// Route::view('/admin', 'dashboard/adminDashboard/dashboard');
 // Route::view('/addProduct', 'dashboard/adminDashboard/addProduct');
 

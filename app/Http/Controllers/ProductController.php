@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Traits\ImgUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Images upload traits 
+    |--------------------------------------------------------------------------
+    |
+    | This Trait to save img in PC
+    |
+    */
+
+    use ImgUpload;
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +50,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return "Hello";
+        $request = $request->only([
+            'name',
+            'price',
+            'des',
+            'category_id',
+            'img',
+        ]);
+
+        $fileName = $this->saveImage($request['img'], 'images/upload/userAvatar');
+
+        $request['img'] = $fileName;
+
+        $product = Product::create( $request );
+
+        return response([
+            'status'=> true,
+            'data' => $product
+        ]);
     }
 
      /**

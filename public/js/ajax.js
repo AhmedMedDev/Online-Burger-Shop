@@ -463,11 +463,11 @@ $('.formAddress input').on("change",function(){
 
             if(data.status === true)
             {
-            Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-            )
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                )
             }
 
         },
@@ -486,7 +486,41 @@ $('.formAddress input').on("change",function(){
 
 
 
+function AddProduct()
+{
+    var formData = new FormData($('#addProductForm')[0]);
 
+    $.ajax({
+        type: "POST",
+        enctype: "multipart/form-data",
+        url: `http://127.0.0.1:8000/product`,
+        data: formData,
+        processData:false,
+        contentType : false,
+        cache:false,
+        success: function (data) {
+ 
+            if(data.status)
+            {
+                 Toast.fire({
+                     position: 'top-end',
+                     icon: 'success',
+                     title: 'Your work has been saved',
+                     showConfirmButton: false,
+                     timer: 1500
+                 })
+ 
+                 $('#addProductForm').trigger("reset");
+ 
+            }
+ 
+        },
+        error: function (data) {
+            console.log('Error:', data);
+            $(this).html('Error');
+        }
+    });
+}
 
 
 

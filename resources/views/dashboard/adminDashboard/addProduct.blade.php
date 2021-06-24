@@ -15,7 +15,8 @@
                   </div>
                   {{--  --}}
                   <div class="card-body">
-                    <form id="profileEditForm" enctype="multipart/form-data"> 
+                    <form id="addProductForm" enctype="multipart/form-data"> 
+
                       <div class="row justify-content-center">
                           <div class="col-md-11">
 
@@ -68,6 +69,7 @@
                               {{-- file-upload  --}}
                           </div>
                       </div>
+                      
                       <div class="clearfix"></div>
                     </form>
                     <button class="btn btn-primary pull-right " onclick="AddProduct()">Add Product</button>
