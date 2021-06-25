@@ -485,7 +485,6 @@ $('.formAddress input').on("change",function(){
 }
 
 
-
 function AddProduct()
 {
     var formData = new FormData($('#addProductForm')[0]);
@@ -523,4 +522,42 @@ function AddProduct()
 }
 
 
+function AddOffer()
+{
+    var formData = new FormData($('#makeOfferForm')[0]);
+    
+    var percent = document.getElementsByClassName('percentageInput')[0].value
+    
+    formData.set('percentage',percent);
 
+    $.ajax({
+        type: "POST",
+        url: `http://127.0.0.1:8000/offer`,
+        data: formData,
+        processData:false,
+        contentType : false,
+        cache:false,    
+        success: function (data) {
+ 
+            if(data.status)
+            {
+                 Toast.fire({
+                     position: 'top-end',
+                     icon: 'success',
+                     title: 'Your work has been saved',
+                     showConfirmButton: false,
+                     timer: 1500
+                 })
+ 
+                 $('#makeOfferForm').trigger("reset");
+ 
+            }
+ 
+        },
+        error: function (data) {
+            console.log('Error:', data);
+            $(this).html('Error');
+        }
+    });
+
+}
