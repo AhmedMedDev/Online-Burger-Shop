@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAddressRequest;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Order;
@@ -20,18 +21,11 @@ class BillingController extends Controller
      * @return $address
      */
 
-    public function storeAddress(Request $request)
+    public function storeAddress($request)
     {
-        $request = $request->only([
-            'country',
-            'street',
-            'city',
-            'postcode',
-            'phone',
-            'order_notes'
-        ]);
+        $request['user_id'] = Auth::user()->id;
 
-        $address = Address::create( $request );
+        $address = Address::create( $request->toArray() );
 
         return response([
             'address' => $address
@@ -111,7 +105,7 @@ class BillingController extends Controller
      * @param Request $request
      * @return respones $order
      */
-    public function placeOrder(Request $request)
+    public function placeOrder(StoreAddressRequest $request)
     {
         $request['address_id']  = $this->storeAddress($request)->original['address']['id'];
 
@@ -121,9 +115,7 @@ class BillingController extends Controller
 
         $this->deleteCart();
         
-        return view('ordering.done',[
-            'order'=>$order
-        ]);
+        return view('ordering.done')->with('order',$order);
     }
 
 

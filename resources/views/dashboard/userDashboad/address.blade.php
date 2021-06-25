@@ -93,12 +93,12 @@
                                                   <label class="bmd-label-static">Country / Region *</label>
                                                   <input type="text" class="form-control "  name="country" value="{{$address->country}}" disabled>
                                               </div>
-                      
+                                              
                                               <div class="form-group">
                                                   <label class="bmd-label-static">House Number and Street Name *</label>
                                                   <input type="text" class="form-control "  name="street" value="{{$address->street}}" disabled>
                                               </div>
-                      
+                                              
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Town / City *</label>
                                                   <input type="text" class="form-control "  name="city" value="{{$address->city}}" disabled>
@@ -106,9 +106,11 @@
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Enter Postcode of Country *</label>
-                                                  <input type="text" class="form-control "  name="postcode" value="{{$address->postcode}}" disabled>
+                                                  <input type="text" class="form-control @error('postcode') is-invalid @enderror"  name="postcode" value="{{$address->postcode}}" disabled>
                                               </div>
-                      
+                                              @error('postcode')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                              @enderror
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Enter Your Phone *</label>
                                                   <input type="text" class="form-control "  name="phone" value="{{$address->phone}}" disabled>

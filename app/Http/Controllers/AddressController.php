@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAddressRequest;
+use App\Http\Requests\UpdateAddressRequest;
 use App\Models\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller
 {
@@ -16,9 +19,8 @@ class AddressController extends Controller
     {
         $addresss = Address::all();
 
-        return view('dashboard\userDashboad\address',[
-            'addresss' => $addresss
-        ]);
+        return view('dashboard\userDashboad\address')
+            ->with('addresss',$addresss);
     }
 
     /**
@@ -37,25 +39,18 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAddressRequest $request)
     {
-        $request = $request->only([
-            'name',
-            'country',
-            'street',
-            'city',
-            'postcode',
-            'phone',
-            'order_notes',
-            'user_id'
-        ]);
+        $request = $request->validated();
+
+        $request['user_id'] = Auth::user()->id;
 
         $address = Address::create( $request );
 
-        return response([
-            'status'=> true,
-            'data' => $address
-        ]);
+        // return response([
+        //     'status'=> true,
+        //     'data' => $address
+        // ]);
     }
 
     /**
@@ -87,22 +82,11 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Address $address)
+    public function update(UpdateAddressRequest $request, Address $address)
     {
-        $request = $request->only([
-            'id',
-            'name',
-            'country',
-            'street',
-            'city',
-            'postcode',
-            'phone',
-            'order_notes',
-            'user_id'
-        ]);
+        $request = $request->validate();
         
-
-        $address = Address::where('id', $address->id)->update( $request );
+        $address = $address->update( $request );
 
         return response([
             'status'=> true,

@@ -64,33 +64,68 @@
                                     <div class="collapse show" id="AddNewAddress">
                                         <div class="form-group">
                                             <label for="country">Name Of Location *</label>
-                                            <input class="input" type="text"  placeholder="Set Name Of this Location " id="name" name="name" />
+                                            <input class="input @error('name') is-invalid @enderror" type="text"  placeholder="Set Name Of this Location " id="name" name="name" />
                                         </div>
+
+                                        @error('name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
                                         <div class="form-group">
                                             <label for="country">Country / Region *</label>
-                                            <input class="input" type="text"  placeholder="United Kingdom" id="country" name="country" />
+                                            <input class="input @error('country') is-invalid @enderror" type="text"  placeholder="United Kingdom" id="country" name="country" />
                                         </div>
+
+                                        @error('country')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
                                         <div class="form-group">
                                             <label for="street">Street address *</label>
-                                            <input class="input" type="text"  placeholder="House Number and Street Name" id="street" name="street" />
+                                            <input class="input @error('street') is-invalid @enderror" type="text"  placeholder="House Number and Street Name" id="street" name="street" />
                                         </div>
+
+                                        @error('street')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
                                         <div class="form-group">
                                             <label for="street">Town / City * </label>
-                                            <input class="input" type="text"  placeholder="" id="city" name="city" >
+                                            <input class="input @error('city') is-invalid @enderror" type="text"  placeholder="" id="city" name="city" >
                                         </div>
+
+                                        @error('city')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
                                         <div class="form-group">
                                             <label for="street">Postcode *</label>
-                                            <input class="input" type="text"  placeholder="Enter Postcode of Country" id="postcode" name="postcode" />
+                                            <input class="input @error('postcode') is-invalid @enderror" type="text"  placeholder="Enter Postcode of Country" id="postcode" name="postcode" />
                                         </div>
+
+                                        @error('postcode')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
                                         <div class="form-group">
                                             <label for="street">Phone *</label>
-                                            <input class="input" type="text"  placeholder="Enter Your Phone" id="phone" name="phone" />
+                                            <input class="input @error('phone') is-invalid @enderror" type="text"  placeholder="Enter Your Phone" id="phone" name="phone" />
                                         </div>
+
+                                        @error('phone')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
                                         <h3 class="litTitle">Additional information</h3>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Order notes (optional)</label>
-                                            <textarea id="exampleFormControlTextarea1" rows="3" placeholder="Notes about your order, e.g. special notes for delivery." name="order_notes"></textarea>
+                                            <textarea class="@error('order_notes') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" placeholder="Notes about your order, e.g. special notes for delivery." name="order_notes"></textarea>
                                         </div>
+
+                                        @error('order_notes')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
                                     </div>   
                                     {{--  --}}
                                     <div class="collapse" id="UseOldAddress">
