@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileUpdateRequest;
 use App\Traits\ImgUpload;
 use App\User;
 use Illuminate\Http\Request;
@@ -46,7 +47,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function create()
     {
         /**
          * User : return dashboard\userDashboad\editProfile
@@ -68,16 +69,8 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(ProfileUpdateRequest $request,User $user)
     {
-        $request = $request->only([
-           'Fname',
-           'Lname',
-           'jobTitle',
-           'bio',
-           'img',
-        ]);
-
         if(isset($request['img']))
         {
             $fileName = $this->saveImage($request['img'], 'images/upload/userAvatar');
@@ -86,10 +79,12 @@ class ProfileController extends Controller
         }
 
         else $request['img'] = Auth::user()->img;
-        
-        User::where('id',Auth::user()->id)->update( $request );
 
-        return response([
+        $user = User::where('id',Auth::user()->id)->update( $request->toArray() );
+
+        //$user = $user->update( $request->toArray() );
+
+        if($user) return response([
             'status'=> true,
         ]);
     }

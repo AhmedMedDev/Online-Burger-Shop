@@ -448,20 +448,21 @@ $('.formAddress input').on("change",function(){
 })
 
 
-  function UpdateProfile()
+  function UpdateProfile(user_id)
 {
     var formData = new FormData( $(`#profileEditForm`)[0] );
+
      $.ajax({
         type: "POST",
         enctype: "multipart/form-data",
-        url: `profileUpdate`,
+        url: `http://127.0.0.1:8000/profile/${user_id}`,
         data: formData,
         processData: false,
         contentType: false,
         cache:false,
         success: function (data) {
 
-            if(data.status === true)
+            if(data.status)
             {
                 Swal.fire(
                     'Good job!',
@@ -474,9 +475,9 @@ $('.formAddress input').on("change",function(){
         error: function (data) {
             console.log('Error:', data);
             Swal.fire(
-            'Oops...',
-            'Something went wrong!',
-            'error'
+                'Oops...',
+                'Something went wrong!',
+                'error'
             )
         }
      });
@@ -550,9 +551,7 @@ function AddOffer()
                  })
  
                  $('#makeOfferForm').trigger("reset");
- 
             }
- 
         },
         error: function (data) {
             console.log('Error:', data);

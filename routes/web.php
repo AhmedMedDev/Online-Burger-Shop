@@ -40,11 +40,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('address', 'AddressController');
 
-    Route::get('profile', 'ProfileController@index');
+    Route::resource('profile', 'ProfileController')->except(['update']);
 
-    Route::get('profileEdit', 'ProfileController@edit');
+    Route::POST('/profile/{user_id}', 'ProfileController@update');
 
-    Route::post('profileUpdate', 'ProfileController@update');
 
     //return 
     Route::resource('user', 'UserController');

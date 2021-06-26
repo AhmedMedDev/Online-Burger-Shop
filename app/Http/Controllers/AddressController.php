@@ -92,7 +92,6 @@ class AddressController extends Controller
             'status'=> true,
             'data' => $address
         ]);
-        
     }
 
     /**
