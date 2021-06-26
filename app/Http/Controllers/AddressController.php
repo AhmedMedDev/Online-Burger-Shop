@@ -47,10 +47,10 @@ class AddressController extends Controller
 
         $address = Address::create( $request );
 
-        // return response([
-        //     'status'=> true,
-        //     'data' => $address
-        // ]);
+        return response([
+            'status'=> true,
+            'data' => $address
+        ]);
     }
 
     /**
@@ -84,7 +84,7 @@ class AddressController extends Controller
      */
     public function update(UpdateAddressRequest $request, Address $address)
     {
-        $request = $request->validate();
+        $request = $request->validated();
         
         $address = $address->update( $request );
 

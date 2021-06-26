@@ -71,6 +71,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request,User $user)
     {
+        $request = $request->validated();
+
         if(isset($request['img']))
         {
             $fileName = $this->saveImage($request['img'], 'images/upload/userAvatar');
@@ -80,7 +82,7 @@ class ProfileController extends Controller
 
         else $request['img'] = Auth::user()->img;
 
-        $user = User::where('id',Auth::user()->id)->update( $request->toArray() );
+        $user = User::where('id',Auth::user()->id)->update( $request );
 
         //$user = $user->update( $request->toArray() );
 
