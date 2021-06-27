@@ -69,9 +69,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileUpdateRequest $request,User $user)
+    public function update(ProfileUpdateRequest $request,$user_id)
     {
-        if ($user->id != Auth::user()->id) abort(403);
+        if ($user_id != Auth::user()->id) abort(403);
         
         $request = $request->validated();
 
@@ -86,7 +86,7 @@ class ProfileController extends Controller
 
         $user = User::where('id',Auth::user()->id)->update( $request );
 
-        //$user = $user->update( $request->toArray() );
+        // $user = $user->update( $request );
 
         //$user = auth()->user()->update( $request );
 
