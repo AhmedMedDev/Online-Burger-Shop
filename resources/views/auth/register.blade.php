@@ -57,7 +57,7 @@
                             <label for="img" class="col-md-4 col-form-label text-md-right">{{ __('Your image') }}</label>
 
                             <div class="col-md-6">
-                                <input id="img" type="file" class="form-control @error('img') is-invalid @enderror" name="img" value="{{ old('img') }}" required >
+                                <input id="img" type="file" class="form-control @error('img') is-invalid @enderror" name="img" value="{{ old('img') }}"  >
 
                                 @error('img')
                                     <span class="invalid-feedback" role="alert">

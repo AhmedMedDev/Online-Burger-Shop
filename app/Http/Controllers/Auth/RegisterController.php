@@ -66,7 +66,7 @@ class RegisterController extends Controller
             'Fname'         => ['required', 'string', 'max:255'],
             'Lname'         => ['required', 'string', 'max:255'],
             'email'         => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'img'           => ['required'],
+            'img'           => ['nullable'],
             'jobTitle'      => ['string'],
             'bio'           => ['string'],
             'password'      => ['required', 'string', 'min:4', 'confirmed'],
@@ -84,7 +84,8 @@ class RegisterController extends Controller
     
     protected function create(array $data)
     {
-        $fileName = $this->saveImage($data['img'], 'images/upload/userAvatar');
+        $fileName = (isset($data['img'])) ?  $this->saveImage($data['img'], 'images/upload/userAvatar')
+        : 'defualt.png';
 
         return User::create([
             'Fname'         => $data['Fname'],
