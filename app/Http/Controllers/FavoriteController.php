@@ -59,7 +59,7 @@ class FavoriteController extends Controller
         $favorite = Favorite::create( $request ); 
 
         return response()->json([
-            'message' => 'success' ,
+            'status' => true ,
             'data' => $favorite ,
         ]);
     }

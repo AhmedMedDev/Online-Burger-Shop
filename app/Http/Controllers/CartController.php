@@ -45,7 +45,7 @@ class CartController extends Controller
         $cart = Cart::create( $request ); 
 
         return response()->json([
-            'message' => 'success' ,
+            'status' => true ,
             'data' => $cart 
         ]);
     }

@@ -13,19 +13,25 @@ function AddToCart(product_id,user_id)
         data  : {product_id : product_id, user_id : user_id },
         cache:false,
         success: function (data) {
-        if(data.message == 'success')
-        {
-            Toast.fire({
-                icon: 'success',
-                title: 'Has Been Added To The Cart'
-            })
-            //Increase Counter
-            $('#cart_counter').text( +$('#cart_counter').text() + 1)
-            
-        }else{
-            alert('error')
-        }
+            if(data.status)
+            {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Has Been Added To The Cart'
+                })
+                //Increase Counter
+                $('#cart_counter').text( +$('#cart_counter').text() + 1)
+                
+            }
         },
+        error: function (data) {
+            console.log('Error:', data);
+            Swal.fire(
+            'Oops...',
+            'Something went wrong!',
+            'error'
+            )
+        }
     })
 
 }
@@ -207,17 +213,23 @@ function AddToFavorite(product_id,user_id)
         data  : {product_id : product_id, user_id : user_id },
         cache:false,
         success: function (data) {
-        if(data.message == 'success')
-        {
-            Toast.fire({
-                icon: 'success',
-                title: 'Has Been Added To The Favorite'
-            })
-            
-        }else{
-            alert('error')
-        }
+            if(data.status)
+            {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Has Been Added To The Favorite'
+                })
+                
+            }
         },
+        error: function (data) {
+            console.log('Error:', data);
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
+        }
     })
 
 }
@@ -243,7 +255,14 @@ function DeleteFavorite(cart_id)
 
             }
        },
-       error: function (data) {}
+       error: function (data) {
+            console.log('Error:', data);
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
+       }
     })
 }
 
@@ -260,7 +279,7 @@ function AddAddreass()
        cache:false,
        success: function (data) {
 
-           if(data.status === true)
+           if(data.status)
            {
                 Toast.fire({
                     position: 'top-end',
@@ -277,8 +296,12 @@ function AddAddreass()
 
        },
        error: function (data) {
-           console.log('Error:', data);
-           $(this).html('Error');
+            console.log('Error:', data);
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
        }
    });
 
@@ -387,7 +410,14 @@ function DeleteAddress(address_id)
 
             }
        },
-       error: function (data) {}
+       error: function (data) {
+            console.log('Error:', data);
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
+       }
     })
 
 }
@@ -524,7 +554,11 @@ function AddProduct()
         },
         error: function (data) {
             console.log('Error:', data);
-            $(this).html('Error');
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
         }
     });
 }
@@ -562,7 +596,11 @@ function AddOffer()
         },
         error: function (data) {
             console.log('Error:', data);
-            $(this).html('Error');
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
         }
     });
 
