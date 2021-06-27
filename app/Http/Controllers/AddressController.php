@@ -17,7 +17,7 @@ class AddressController extends Controller
      */
     public function index()
     {
-        $addresss = Address::all();
+        $addresss = Address::where('user_id',Auth::user()->id)->get();
 
         return view('dashboard\userDashboad\address')
             ->with('addresss',$addresss);
@@ -84,6 +84,8 @@ class AddressController extends Controller
      */
     public function update(UpdateAddressRequest $request, Address $address)
     {
+        if ($address->user_id != Auth::user()->id) abort(403);
+        
         $request = $request->validated();
         
         $address = $address->update( $request );

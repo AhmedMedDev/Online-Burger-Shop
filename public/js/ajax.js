@@ -451,7 +451,7 @@ function UpdateAddress(address_id)
          cache:false,
          success: function (data) {
 
-             if(data.status === true)
+             if(data.status)
              {
                 Swal.fire(
                     'Good job!',

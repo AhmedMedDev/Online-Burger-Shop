@@ -41,7 +41,7 @@
         
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Enter Postcode of Country *</label>
-                                    <input type="text" class="form-control" id="postcode" name="postcode">
+                                    <input type="number" class="form-control" id="postcode" name="postcode">
                                 </div>
         
                                 <div class="form-group">
@@ -106,7 +106,7 @@
                       
                                               <div class="form-group">
                                                   <label class="bmd-label-static">Enter Postcode of Country *</label>
-                                                  <input type="text" class="form-control @error('postcode') is-invalid @enderror"  name="postcode" value="{{$address->postcode}}" disabled>
+                                                  <input type="number" class="form-control @error('postcode') is-invalid @enderror"  name="postcode" value="{{$address->postcode}}" disabled>
                                               </div>
                                               @error('postcode')
                                                 <div class="alert alert-danger">{{ $message }}</div>
