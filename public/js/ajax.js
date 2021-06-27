@@ -128,11 +128,15 @@ function IncreaseCart(cart_id,product_price)
             quantity : Number(quantity) + 1
         },
         cache:false,
-        success: function (data) {},
+        success: function (data) {
+            if (data.status)
+            {
+                Update_Total_price('+',product_price)
+            }
+        },
         error: function (data) {}
     })
 
-    Update_Total_price('+',product_price)
 
 }
 
