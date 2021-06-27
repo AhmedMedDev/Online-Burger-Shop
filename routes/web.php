@@ -46,11 +46,11 @@ Route::middleware(['auth'])->group(function () {
 
 
     //return 
-    Route::resource('user', 'UserController');
+    Route::resource('user', 'UserController')->middleware('Admin');
 
-    Route::resource('order', 'OrderController');
+    Route::resource('order', 'OrderController')->middleware('Admin');
 
-    Route::resource('product', 'ProductController');
+    Route::resource('product', 'ProductController')->middleware('Admin');
 
     Route::resource('offer', 'OfferController')->middleware('Admin');
 
