@@ -52,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('product', 'ProductController');
 
-    Route::resource('offer', 'OfferController');
+    Route::resource('offer', 'OfferController')->middleware('Admin');
 
 });
 

@@ -86,6 +86,8 @@ class ProfileController extends Controller
 
         //$user = $user->update( $request->toArray() );
 
+        //$user = auth()->user()->update( $request );
+
         if($user) return response([
             'status'=> true,
         ]);
