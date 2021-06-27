@@ -71,6 +71,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request,User $user)
     {
+        if ($user->id != Auth::user()->id) abort(403);
+        
         $request = $request->validated();
 
         if(isset($request['img']))
