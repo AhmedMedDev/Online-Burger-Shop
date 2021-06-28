@@ -202,7 +202,7 @@ if(document.getElementsByClassName('total_price')[0])
 
     document.getElementsByClassName('total_price')[1].innerHTML = localStorage.getItem('total_price')
     
-    document.getElementsByClassName('total_price')[2].setAttribute('value',localStorage.getItem('total_price'))
+    document.getElementsByClassName('total_price')[2].setAttribute('value',localStorage.getItem('total_price').substring(1))
 }
 
 function AddToFavorite(product_id,user_id)

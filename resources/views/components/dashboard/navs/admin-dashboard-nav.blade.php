@@ -13,7 +13,7 @@
       </a>
     </li>
     <li class="nav-item " id="Edit-Profile">
-      <a class="nav-link" href="{{url('profileEdit')}}">
+      <a class="nav-link" href="{{url('profile/create')}}">
         <i class="material-icons">edit</i>
         <p>Edit Profile</p>
       </a>

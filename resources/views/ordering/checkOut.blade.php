@@ -100,7 +100,7 @@
 
                                         <div class="form-group">
                                             <label for="street">Postcode *</label>
-                                            <input class="input @error('postcode') is-invalid @enderror" type="text"  placeholder="Enter Postcode of Country" id="postcode" name="postcode" />
+                                            <input class="input @error('postcode') is-invalid @enderror" type="number"  placeholder="Enter Postcode of Country" id="postcode" name="postcode" />
                                         </div>
 
                                         @error('postcode')
@@ -168,7 +168,7 @@
                                         <div class="disF orderInfo">
                                             <h5 class="title">Total</h5>
                                             <h5 class="price total_price">$8.00</h5>
-                                            <input type="text" name="total_price" class="total_price hidden"  value="" >
+                                            <input type="number" name="total_price" class="total_price hidden"  value="" >
                                         </div>
                                     </div>
                                     <div class="payMethode">
