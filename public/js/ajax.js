@@ -522,6 +522,37 @@ $('.formAddress input').on("change",function(){
     
 }
 
+function DeleteUser(user_id)
+{
+    $.ajax({
+        method : "DELETE",
+        url  : `user/${user_id}`,
+        data  : {},
+        cache:false,
+        success: function (data) {
+            if(data)
+            {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                )
+                $(`#user${user_id}`).fadeOut(600,function () {
+                    $(`#user${user_id}`).remove();
+                });
+
+            }
+       },
+       error: function (data) {
+            console.log('Error:', data);
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
+       }
+    })
+}
 
 function AddProduct()
 {

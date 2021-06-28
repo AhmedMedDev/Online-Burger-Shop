@@ -35,10 +35,10 @@ class ProfileController extends Controller
 
         if (Auth::user()->IsAdmin)
         {
-            return view('dashboard\adminDashboard\userProfile');
+            return view('dashboard\adminDashboard\myProfile');
         }
 
-        return view('dashboard\userDashboad\userProfile');
+        return view('dashboard\userDashboad\myProfile');
     }
 
     /**

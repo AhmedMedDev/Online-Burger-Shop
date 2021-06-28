@@ -16,9 +16,8 @@ class UserController extends Controller
     {
         $users = User::where('IsAdmin','0')->get();
 
-        return view('dashboard\adminDashboard\userList',[
-            'users' => $users
-        ]);
+        return view('dashboard\adminDashboard\userList',)
+        ->with('users',$users);
     }
 
     /**
@@ -48,9 +47,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user_id)
     {
-        //
+        $user = User::find($user_id);
+
+        return view('dashboard\adminDashboard\userProfile',)
+        ->with('user',$user);
     }
 
     /**
@@ -82,8 +84,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        return $user->delete();
     }
 }

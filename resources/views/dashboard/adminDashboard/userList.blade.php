@@ -28,7 +28,7 @@
                       <tbody>
                         {{--  --}}
                           @foreach ($users as $user)
-                            <tr>
+                            <tr id="user{{$user->id}}">
                               <td>
                                 <div class="img-container">
                                     <img src="{{asset('images/upload/userAvatar/'. $user->img)}}" rel="nofollow" alt="..." width="50px">
@@ -39,12 +39,14 @@
                               <td>{{$user->jobTitle}} </td>
                               <td class="td-actions text-right">
                                   <button type="button" rel="tooltip" class="btn btn-info">
-                                      <i class="material-icons">person</i>
+                                      <a href="{{url('user',$user->id)}}" style="color: white">
+                                        <i class="material-icons">person</i>
+                                      </a>
                                   </button>
                                   <button type="button" rel="tooltip" class="btn btn-success">
                                       <i class="material-icons">edit</i>
                                   </button>
-                                  <button type="button" rel="tooltip" class="btn btn-danger">
+                                  <button type="button" rel="tooltip" class="btn btn-danger" onclick="DeleteUser({{$user->id}})">
                                       <i class="material-icons">close</i>
                                   </button>
                               </td>

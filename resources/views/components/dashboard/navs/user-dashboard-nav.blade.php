@@ -6,10 +6,10 @@
         <p>Landing Page</p>
       </a>
     </li>
-    <li class="nav-item " id="User-Profile">
+    <li class="nav-item " id="My-Profile">
       <a class="nav-link" href="{{url('profile')}}">
         <i class="material-icons">person</i>
-        <p>User Profile</p>
+        <p>My Profile</p>
       </a>
     </li>
     <li class="nav-item " id="Edit-Profile">

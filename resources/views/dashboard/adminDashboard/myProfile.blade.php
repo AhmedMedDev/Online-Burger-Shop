@@ -1,6 +1,6 @@
 @extends('layouts.dashboard.adminDashboard')
 
-@section('title','User-Profile')
+@section('title','My-Profile')
     
 @section('mainContent')
         {{--  --}}
@@ -11,13 +11,13 @@
                 <div class="card card-profile">
                   <div class="card-avatar">
                     <a href="javascript:;">
-                      <img class="img" src="{{asset('images/upload/userAvatar/'. $user->img)}}" />
+                      <img class="img" src="{{asset('images/upload/userAvatar/'. Auth::user()->img)}}" />
                     </a>
                   </div>
                   <div class="card-body">
-                    <h6 class="card-category text-gray">{{$user->jobTitle}}</h6>
-                    <h4 class="card-title">{{$user->Fname}} {{$user->Lname}}</h4>
-                    <p class="card-description">  {{$user->bio}}  </p>
+                    <h6 class="card-category text-gray">{{Auth::user()->jobTitle}}</h6>
+                    <h4 class="card-title">{{Auth::user()->Fname}} {{Auth::user()->Lname}}</h4>
+                    <p class="card-description">  {{Auth::user()->bio}}  </p>
                     <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
                   </div>
                 </div>
