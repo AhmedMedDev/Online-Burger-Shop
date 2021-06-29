@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCartRequest;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,9 +39,11 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCartRequest $request)
     {
-        $request = $request->only(['product_id','user_id']);
+        //if ($request['user_id'] != Auth::user()->id) abort(403);
+
+        $request = $request->validated();
 
         $cart = Cart::create( $request ); 
 
