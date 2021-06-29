@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOfferRequest;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,9 +37,9 @@ class OfferController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreOfferRequest $request)
     {
-        $request = $request->only(['product_id','percentage']);
+        $request = $request->validated();
 
         $offer = Offer::create($request);
 

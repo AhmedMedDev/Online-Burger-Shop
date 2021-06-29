@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFavoriteRequest;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,9 +55,9 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFavoriteRequest $request)
     {
-        $request = $request->only(['product_id', 'user_id']);
+        $request = $request->validated();
         
         $favorite = Favorite::create( $request ); 
 

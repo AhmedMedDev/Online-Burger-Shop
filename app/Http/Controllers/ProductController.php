@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use App\Traits\ImgUpload;
 use Illuminate\Http\Request;
@@ -48,15 +50,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $request = $request->only([
-            'name',
-            'price',
-            'des',
-            'category_id',
-            'img',
-        ]);
+        $request = $request->validated();
 
         $fileName = $this->saveImage($request['img'], 'images/upload/userAvatar');
 
@@ -114,16 +110,4 @@ class ProductController extends Controller
     {
         //
     }
-
-     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function MakeOffer($id)
-    {
-        //
-    }
-
 }
