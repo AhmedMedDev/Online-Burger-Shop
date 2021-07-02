@@ -15,7 +15,7 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//Secured
     {
         $addresss = Address::where('user_id',Auth::user()->id)->get();
 

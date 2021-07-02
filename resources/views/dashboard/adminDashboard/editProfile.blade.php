@@ -59,7 +59,7 @@
                       </div>
                       <div class="clearfix"></div>
                     </form>
-                    <button class="btn btn-primary pull-right" onclick="UpdateProfile()">Update Info</button>
+                    <button class="btn btn-primary pull-right" onclick="UpdateProfile({{ Auth::user()->id }})">Update Info</button>
                   </div>
                   {{--  --}}
                 </div>
