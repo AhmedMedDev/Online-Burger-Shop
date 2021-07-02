@@ -39,7 +39,7 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAddressRequest $request)
+    public function store(StoreAddressRequest $request)//Secured
     {
         $request = $request->validated();
 
@@ -82,7 +82,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAddressRequest $request, Address $address)
+    public function update(UpdateAddressRequest $request, Address $address)//Secured
     {
         if ($address->user_id != Auth::user()->id) abort(403);
         
@@ -102,8 +102,10 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Address $address)
+    public function destroy(Address $address)//Secured
     {
+        if($address->user_id != Auth::user()->id) abort(403);
+        
         return $address->delete();
     }
 }

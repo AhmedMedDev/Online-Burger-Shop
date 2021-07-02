@@ -13,7 +13,7 @@ class HomeController extends Controller
      *
      * @return view index with products's data
      */
-    public function index()
+    public function index()//Secured
     {
         $products = DB::table('products')->get();
 

@@ -24,7 +24,7 @@ class OfferController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()//Secured
     {
         $products = DB::table('products')->get();
 
@@ -37,7 +37,7 @@ class OfferController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOfferRequest $request)
+    public function store(StoreOfferRequest $request)//Secured
     {
         $request = $request->validated();
 

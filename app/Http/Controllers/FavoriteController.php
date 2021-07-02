@@ -26,7 +26,7 @@ class FavoriteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//Secured
     {
         $favorites = DB::table('favorites')
         ->join('products','favorites.product_id','=','products.id')
@@ -55,8 +55,10 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFavoriteRequest $request)
+    public function store(StoreFavoriteRequest $request)//Secured
     {
+        //if ($request['user_id'] != Auth::user()->id) abort(403);
+
         $request = $request->validated();
         
         $favorite = Favorite::create( $request ); 
@@ -107,8 +109,10 @@ class FavoriteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy(Favorite $favorite)//Secured
     {
+        if ($favorite->user_id != Auth::user()->id) abort(403);
+
         return $favorite->delete();
     }
 }

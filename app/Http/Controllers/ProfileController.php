@@ -26,7 +26,7 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//Secured
     {
         /**
          * User : return dashboard\userDashboad\userProfile
@@ -47,7 +47,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()//Secured
     {
         /**
          * User : return dashboard\userDashboad\editProfile
@@ -69,7 +69,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileUpdateRequest $request,$user_id)
+    public function update(ProfileUpdateRequest $request,$user_id)//Secured
     {
         if ($user_id != Auth::user()->id) abort(403);
         

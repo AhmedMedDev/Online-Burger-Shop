@@ -23,13 +23,13 @@ class StoreAddressRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'      => 'string',
-            'country'   => 'string',
-            'street'    => 'string',
-            'city'      => 'string',
+        return [ //regex:/^[a-zA-Z0-9 ]+$/
+            'name'      => 'string|regex:/^[a-zA-Z ]+$/',
+            'country'   => 'string|regex:/^[a-zA-Z ]+$/',
+            'street'    => 'string|regex:/^[a-zA-Z ]+$/',
+            'city'      => 'string|regex:/^[a-zA-Z ]+$/',
             'postcode'  => 'integer',
-            'phone'     => 'string',
+            'phone'     => 'string|regex:/^[a-zA-Z ]+$/',
             'order_notes' => 'nullable',
         ];
     }

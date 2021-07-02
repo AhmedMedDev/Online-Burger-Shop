@@ -20,8 +20,8 @@ class BillingController extends Controller
      * @param Request $request
      * @return $address
      */
-
-    public function storeAddress($request)
+    // remeber to put this function in trait 
+    public function storeAddress($request)//Secured
     {
         $request['user_id'] = Auth::user()->id;
 
@@ -40,7 +40,7 @@ class BillingController extends Controller
      * @return respones $orderProduct
      */
 
-    public function storeOrderProduct($order_id)
+    public function storeOrderProduct($order_id)//Secured
     {
         $carts = Cart::where('user_id',Auth::user()->id )->get();
 
@@ -64,7 +64,7 @@ class BillingController extends Controller
      * @param 
      * @return void
      */
-    public function deleteCart()
+    public function deleteCart()//Secured
     {
         $cart = Cart::where('user_id', Auth::user()->id )->delete();
 
@@ -79,10 +79,9 @@ class BillingController extends Controller
      * @param Request $request
      * @return respones $orderProduct
      */
-    public function storeOrder(Request $request)
+    public function storeOrder(Request $request)//Secured
     {
         $request = $request->only([
-            'order_product_id',
             'payment_method',
             'total_price',
             'address_id'
@@ -105,7 +104,7 @@ class BillingController extends Controller
      * @param Request $request
      * @return respones $order
      */
-    public function placeOrder(StoreAddressRequest $request)
+    public function placeOrder(StoreAddressRequest $request)//Secured
     {
         $request['address_id']  = $this->storeAddress($request)->original['address']['id'];
 

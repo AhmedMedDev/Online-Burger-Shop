@@ -27,7 +27,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//Secured
     {
         $products = DB::table('products')->get();
 
@@ -39,7 +39,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()//Secured
     {
         return view('dashboard/adminDashboard/addProduct');
     }
@@ -50,7 +50,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreProductRequest $request)//Secured
     {
         $request = $request->validated();
 

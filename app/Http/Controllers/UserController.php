@@ -12,7 +12,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//Secured
     {
         $users = User::where('IsAdmin','0')->get();
 
@@ -47,7 +47,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($user_id)//Secured
     {
         $user = User::find($user_id);
 

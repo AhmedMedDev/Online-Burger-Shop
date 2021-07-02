@@ -14,7 +14,7 @@ class CheckController extends Controller
      *
      * @return view checkOut with cart's data 
      */
-    public function index()
+    public function index()//Secured
     {
         // dd( User::find(1)->GetFullName() ) ;
         

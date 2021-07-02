@@ -26,11 +26,11 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//Secured
     {
         $carts = DB::table('cart_product')->where('user_id',Auth::user()->id)->get();
 
-        return view('ordering.cart',['carts' => $carts]);
+        return view('ordering.cart')->with('carts',$carts);
     }
 
     /**
@@ -39,7 +39,7 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCartRequest $request)
+    public function store(StoreCartRequest $request)//Secured
     {
         //if ($request['user_id'] != Auth::user()->id) abort(403);
 
@@ -53,7 +53,7 @@ class CartController extends Controller
         ]);
     }
 
-    public function cartCounter()
+    public function cartCounter()//Secured
     {
         $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id)->count();
 
@@ -67,7 +67,7 @@ class CartController extends Controller
      * @param  Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request, Cart $cart)//Secured so No input from user the request make from Back-End
     {
         $request = $request->only(['quantity']);
 
@@ -86,8 +86,10 @@ class CartController extends Controller
      * @param  Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy(Cart $cart)//Secured
     {
+        if ($cart->user_id != Auth::user()->id) abort(403);
+
         return $cart->delete();
     }
 
