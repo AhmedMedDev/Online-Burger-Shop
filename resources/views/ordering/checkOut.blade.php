@@ -64,7 +64,7 @@
                                     <div class="collapse show" id="AddNewAddress">
                                         <div class="form-group">
                                             <label for="country">Name Of Location *</label>
-                                            <input class="input @error('name') is-invalid @enderror" type="text"  placeholder="Set Name Of this Location " id="name" name="name" />
+                                            <input class="input @error('name') is-invalid @enderror" type="text"  placeholder="Set Name Of this Location " id="name" name="name" value="{{ old('name') }}" />
                                         </div>
 
                                         @error('name')
@@ -73,7 +73,7 @@
 
                                         <div class="form-group">
                                             <label for="country">Country / Region *</label>
-                                            <input class="input @error('country') is-invalid @enderror" type="text"  placeholder="United Kingdom" id="country" name="country" />
+                                            <input class="input @error('country') is-invalid @enderror" type="text"  placeholder="United Kingdom" id="country" name="country" value="{{ old('country') }}" />
                                         </div>
 
                                         @error('country')
@@ -82,7 +82,7 @@
 
                                         <div class="form-group">
                                             <label for="street">Street address *</label>
-                                            <input class="input @error('street') is-invalid @enderror" type="text"  placeholder="House Number and Street Name" id="street" name="street" />
+                                            <input class="input @error('street') is-invalid @enderror" type="text"  placeholder="House Number and Street Name" id="street" name="street" value="{{ old('street') }}" />
                                         </div>
 
                                         @error('street')
@@ -91,7 +91,7 @@
 
                                         <div class="form-group">
                                             <label for="street">Town / City * </label>
-                                            <input class="input @error('city') is-invalid @enderror" type="text"  placeholder="" id="city" name="city" >
+                                            <input class="input @error('city') is-invalid @enderror" type="text"  placeholder="" id="city" name="city" value="{{ old('city') }}" >
                                         </div>
 
                                         @error('city')
@@ -100,7 +100,7 @@
 
                                         <div class="form-group">
                                             <label for="street">Postcode *</label>
-                                            <input class="input @error('postcode') is-invalid @enderror" type="number"  placeholder="Enter Postcode of Country" id="postcode" name="postcode" />
+                                            <input class="input @error('postcode') is-invalid @enderror" type="number"  placeholder="Enter Postcode of Country" id="postcode" name="postcode" value="{{ old('postcode') }}" />
                                         </div>
 
                                         @error('postcode')
@@ -109,7 +109,7 @@
 
                                         <div class="form-group">
                                             <label for="street">Phone *</label>
-                                            <input class="input @error('phone') is-invalid @enderror" type="text"  placeholder="Enter Your Phone" id="phone" name="phone" />
+                                            <input class="input @error('phone') is-invalid @enderror" type="text"  placeholder="Enter Your Phone" id="phone" name="phone" value="{{ old('phone') }}" />
                                         </div>
 
                                         @error('phone')
@@ -209,6 +209,9 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        @error('payment_method')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <button class="placeOrder" type="submit">Place Order</button>
                                 </div>
