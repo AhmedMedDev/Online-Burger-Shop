@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -15,7 +16,9 @@ class HomeController extends Controller
      */
     public function index()//Secured
     {
-        $products = DB::table('products')->get();
+        $products = Cache::rememberForever('products', function () {
+            return DB::table('products')->get();
+        });
 
         $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id ?? '')->count();
 
