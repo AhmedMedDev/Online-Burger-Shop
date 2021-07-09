@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateAddressRequest;
 use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class AddressController extends Controller
 {
@@ -17,10 +19,15 @@ class AddressController extends Controller
      */
     public function index()//Secured
     {
-        $addresss = Address::where('user_id',Auth::user()->id)->get();
+        if (!Cache::has('addresss'))
+        {
+            Cache::remember('addresss', now()->addMinute(5), function () {
+                return DB::table('address')->where('user_id',Auth::user()->id)->get();
+            });
+        }
 
         return view('dashboard\userDashboad\address')
-            ->with('addresss',$addresss);
+            ->with('addresss',Cache::get('addresss'));
     }
 
     /**

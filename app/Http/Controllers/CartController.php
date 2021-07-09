@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCartRequest;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 
@@ -28,9 +29,14 @@ class CartController extends Controller
      */
     public function index()//Secured
     {
-        $carts = DB::table('cart_product')->where('user_id',Auth::user()->id)->get();
+        if (!Cache::has('cart_product'))
+        {
+            Cache::remember('cart_product', now()->addMinute(5), function () {
+                return DB::table('cart_product')->where('user_id',Auth::user()->id)->get();
+            });
+        }
 
-        return view('ordering.cart')->with('carts',$carts);
+        return view('ordering.cart')->with('carts',Cache::get('cart_product'));
     }
 
     /**

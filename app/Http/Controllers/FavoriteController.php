@@ -6,6 +6,7 @@ use App\Http\Requests\StoreFavoriteRequest;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class FavoriteController extends Controller
@@ -28,14 +29,18 @@ class FavoriteController extends Controller
      */
     public function index()//Secured
     {
-        $favorites = DB::table('favorites')
-        ->join('products','favorites.product_id','=','products.id')
-        ->select('products.*','favorites.id','favorites.product_id','favorites.user_id')
-        ->where('favorites.user_id',Auth::user()->id)
-        ->get();
-        
+        if (!Cache::has('favorites'))
+        {
+            Cache::remember('favorites', now()->addMinute(5), function () {
+                return DB::table('favorites')
+                ->join('products','favorites.product_id','=','products.id')
+                ->select('products.*','favorites.id','favorites.product_id','favorites.user_id')
+                ->where('favorites.user_id',Auth::user()->id)
+                ->get();
+            });
+        }
         return view('dashboard\userDashboad\favorite',[
-            'favorites' => $favorites
+            'favorites' => Cache::get('favorites')
         ]);
     }
 

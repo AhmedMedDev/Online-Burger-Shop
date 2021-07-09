@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -14,11 +16,15 @@ class OrderController extends Controller
      */
     public function index()//Secured
     {
-        $orders = Order::get();
+        if (!Cache::has('orders'))
+        {
+            Cache::remember('orders', now()->addMinute(5), function () {
+                return DB::table('orders')->get();
+            });
+        }
         
-        return view('dashboard\adminDashboard\orderList',[
-            'orders' => $orders
-        ]);
+        return view('dashboard\adminDashboard\orderList')
+        ->with('orders',Cache::get('orders', 'default'));
     }
 
     /**

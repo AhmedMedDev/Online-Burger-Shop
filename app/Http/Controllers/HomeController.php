@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         if (!Cache::has('products')) 
         {
-            Cache::remember('products',3600, function () {
+            Cache::remember('products', now()->addMinute(5), function () {
                 return DB::table('products')->get();
             });
         }

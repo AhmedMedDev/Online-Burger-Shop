@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         if (!Cache::has('users'))
         {
-            Cache::remember('users',3600, function () {
+            Cache::remember('users',now()->addMinute(5), function () {
                 return User::where('IsAdmin','0')->get();
             });
         }
