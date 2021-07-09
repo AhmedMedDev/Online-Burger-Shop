@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Traits\ImgUpload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -29,9 +30,14 @@ class ProductController extends Controller
      */
     public function index()//Secured
     {
-        $products = DB::table('products')->get();
+        if (!Cache::has('products'))
+        {
+            Cache::remember('products', 3600, function () {
+                return DB::table('products')->get();
+            });
+        }
 
-        return view('index',['products' => $products]);
+        return view('index',['products' => Cache::get('products', 'default')]);
     }
 
     /**

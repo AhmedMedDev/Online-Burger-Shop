@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,10 +16,15 @@ class UserController extends Controller
      */
     public function index()//Secured
     {
-        $users = User::where('IsAdmin','0')->get();
+        if (!Cache::has('users'))
+        {
+            Cache::remember('users',3600, function () {
+                return User::where('IsAdmin','0')->get();
+            });
+        }
 
         return view('dashboard\adminDashboard\userList',)
-        ->with('users',$users);
+        ->with('users',Cache::get('users', 'default'));
     }
 
     /**
@@ -51,7 +58,7 @@ class UserController extends Controller
     {
         $user = User::find($user_id);
 
-        return view('dashboard\adminDashboard\userProfile',)
+        return view('dashboard\adminDashboard\userProfile')
         ->with('user',$user);
     }
 

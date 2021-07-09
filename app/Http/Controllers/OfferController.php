@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreOfferRequest;
 use App\Models\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class OfferController extends Controller
@@ -26,9 +27,14 @@ class OfferController extends Controller
      */
     public function create()//Secured
     {
-        $products = DB::table('products')->get();
+        if (!Cache::has('products')) 
+        {
+            Cache::remember('products',3600, function () {
+                return DB::table('products')->get();
+            });
+        }
 
-        return view('dashboard/adminDashboard/makeOffer',['products' => $products]);
+        return view('dashboard/adminDashboard/makeOffer',['products' => Cache::get('products', 'default')]);
     }
 
     /**

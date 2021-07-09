@@ -10,8 +10,8 @@
               <div class="col-md-9">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">User List</h4>
-                    <p class="card-category">Add New Product</p>
+                    <h4 class="card-title">Order List</h4>
+                    <p class="card-category">. . . . .</p>
                   </div>
                   {{--  --}}
                   <div class="card-body">

@@ -16,15 +16,20 @@ class HomeController extends Controller
      */
     public function index()//Secured
     {
-        $products = Cache::rememberForever('products', function () {
-            return DB::table('products')->get();
-        });
+        if (!Cache::has('products')) 
+        {
+            Cache::remember('products',3600, function () {
+                return DB::table('products')->get();
+            });
+        }
 
-        $cartCount = DB::table('cart_product')->where('user_id',Auth::user()->id ?? '')->count();
+        $cartCount = DB::table('cart_product')
+        ->where('user_id',Auth::user()->id ?? '')
+        ->count();
 
         return view('index',
         [
-            'products' => $products,
+            'products' => Cache::get('products', 'default'),
             'cartCount' => $cartCount,
         ]);
     }
